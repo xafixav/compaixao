@@ -5,22 +5,26 @@ module.exports = {
      *
      * Example:
      */
-    await queryInterface.bulkInsert('users', [
+    await queryInterface.bulkInsert('assisted', [
       {
-        userId: '01',
+        assistedId: 1,
         name: 'Joao da silva',
         cpf: 12345678903,
         rg: null,
-        moradia: 'Albergue', // secret_admin
+        livingState: 'Albergue',
         description: '',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
-        userId: '02',
+        assistedId: 2,
         name: 'Kleber Camargo',
         cpf: null,
         rg: 12345678904,
-        moradia: 'Rua', // secret_admin
+        livingState: 'Rua',
         description: '',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     ], {});
   },
@@ -31,6 +35,6 @@ module.exports = {
      *
      * Example:
      */
-    await queryInterface.bulkDelete('users', null, {});
+    await queryInterface.bulkDelete('assisted', null, {});
   },
 };
