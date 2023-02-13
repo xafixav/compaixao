@@ -5,7 +5,7 @@ class Assisted extends Model {
 
   public id!: number;
 
-  public userId: number;
+  public assistedId!: number;
   
   public name!: string;
 
@@ -13,9 +13,13 @@ class Assisted extends Model {
 
   public rg!: string;
 
-  public moradia!: string;
+  public livingState!: string;
 
   public description!: string;
+
+  public createdAt!: number;
+
+  public updatedAt!: number;
 
 }
 
@@ -26,6 +30,11 @@ Assisted.init({
     unique: true,
     primaryKey: true,
     autoIncrement: true,
+  },
+  assistedId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    unique: false,
   },
   name: {
     type: DataTypes.STRING,
@@ -40,9 +49,9 @@ Assisted.init({
   rg: {
     type: DataTypes.STRING,
     allowNull: true,
-    unique: true,
+    unique: false,
   },
-  moradia: {
+  livingState: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: false,
@@ -56,8 +65,8 @@ Assisted.init({
   // ... Outras configs
   underscored: false,
   sequelize: db,
-  tableName: 'users',
-  timestamps: false,
+  tableName: 'assisted',
+  timestamps: true,
 });
 
 /**
