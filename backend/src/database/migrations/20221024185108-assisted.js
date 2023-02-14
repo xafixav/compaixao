@@ -33,7 +33,7 @@ module.exports = {
       livingState: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
+        unique: false,
       },
       description: {
         type: Sequelize.STRING,
