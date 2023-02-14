@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getAllAssisted, registerAssisted } from '../services/requests';
+import { registerAssisted } from '../services/requests';
 
 const defaultObject = {
     name: '',
@@ -13,7 +13,7 @@ const defaultObject = {
 
 const Forms = () => {
     const [allInfo, setAllInfo] = useState(defaultObject);
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
 
     const updateState = (event) => {
         const { name, value } = event.target;
@@ -89,16 +89,16 @@ const Forms = () => {
     }
 
     const dispatchRequest = async () => {
-        setIsLoading(true);
+        // setIsLoading(true);
         // const data = JSON.stringify(allInfo);
         // await registerAssisted(allInfo);
         const dbTest = await registerAssisted(allInfo);
         console.log(dbTest);
-        setIsLoading(false);
+        // setIsLoading(false);
     }
 
     return (
-        <div>
+        <div className='registerPage'>
             {generateInputs()}
             {sendButton()}
         </div>

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import {   BrowserRouter as Router,
   Routes,
   Route,
@@ -10,6 +9,15 @@ import AssistedInfo from './components/AssistedInfo'
 function App() {
   return (
     <Router>
+      <div className='header'>
+
+        <li className='headerLinks'>
+          <Link to="/">Registrar</Link>
+        </li>
+        <li className='headerLinks'>
+          <Link to="/assisted">Lista de registrados</Link>
+        </li>
+      </div>
         <Routes>
           <Route exact path='/' element={<Forms/>}/>
           <Route exact path='/assisted' element={<AssistedInfo/>}/>
