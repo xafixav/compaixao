@@ -23,4 +23,18 @@ export default class AssistedController {
       next(e);
     }
   };
+
+  public getAll = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+
+      const assistedResponse = await this.assistedService.getAll();
+
+      if (assistedResponse) {
+        return res.status(StatusCodes.OK).json(assistedResponse);
+      }
+
+    } catch (e) {
+      next(e);
+    }
+  };
 }

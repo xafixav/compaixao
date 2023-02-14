@@ -47,4 +47,19 @@ export default class AssistedService {
       throw new ErrorManager({ status: StatusCodes.BAD_REQUEST, message: e.message });
     }
   };
+
+  public getAll = async (): Promise<IAssisted[]> => {
+    try {
+      this.start();
+
+      const newAssisted = await this.userModel.findAll();
+      if (newAssisted) {
+        return newAssisted;
+      }
+      throw new ErrorManager({ status: StatusCodes.BAD_REQUEST, message: ERROR_MESSAGES.ASSISTED_REGISTER_FAILURE });
+
+    } catch (e: any) {
+      throw new ErrorManager({ status: StatusCodes.BAD_REQUEST, message: e.message });
+    }
+  };
 }
