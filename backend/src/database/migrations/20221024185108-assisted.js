@@ -3,19 +3,24 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('relationalInventory', {
+    await queryInterface.createTable('assisted', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      assistedId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        unique: false,
+      },
       name: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: false,
       },
-      email: {
+      rg: {
         type: Sequelize.STRING,
         allowNull: true,
         unique: false,
@@ -25,12 +30,12 @@ module.exports = {
         allowNull: true,
         unique: false,
       },
-      username: {
+      livingState: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
       },
-      password: {
+      description: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: false,
@@ -47,6 +52,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('relationalInventory');
+    await queryInterface.dropTable('assisted');
   }
 };

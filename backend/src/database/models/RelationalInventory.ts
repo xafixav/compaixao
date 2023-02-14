@@ -1,5 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '.';
+import Assisted from './Assisted';
+import Inventory from './Inventory';
 
 class RelationalInventory extends Model {
 
@@ -8,6 +10,8 @@ class RelationalInventory extends Model {
   public userId!: string;
 
   public inventoryId!: string;
+
+  public quantity!: number;
 
 }
 
@@ -19,17 +23,17 @@ RelationalInventory.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  userId: {
-    type: DataTypes.NUMBER,
+  assistedId: {
+    type: DataTypes.INTEGER,
     allowNull: false,
     unique: false,
     references: {
-      model: 'users',
+      model: 'assisted',
       key: 'id'
     }
   },
   inventoryId: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
     unique: false,
     references: {
@@ -37,12 +41,17 @@ RelationalInventory.init({
       key: 'id'
     }
   },
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    unique: false,
+  },
 }, {
   // ... Outras configs
   underscored: false,
   sequelize: db,
   tableName: 'relationalInventory',
-  timestamps: false,
+  timestamps: true,
 });
 
 /**
@@ -55,6 +64,9 @@ RelationalInventory.init({
 
 // Example.hasMany(OtherModel, { foreignKey: 'campoC', as: 'campoEstrangeiroC' });
 // Example.hasMany(OtherModel, { foreignKey: 'campoD', as: 'campoEstrangeiroD' });
+
+RelationalInventory.hasMany(Inventory, { foreignKey: 'id', as: 'product', onDelete: 'CASCADE' });
+RelationalInventory.hasMany(Assisted, { foreignKey: 'id', as: 'product', onDelete: 'CASCADE' });
 
 
 export default RelationalInventory;

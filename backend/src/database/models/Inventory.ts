@@ -5,13 +5,13 @@ class Inventory extends Model {
 
   public id!: number;
   
-  public tipo!: string;
+  public type!: string;
 
-  public genero!: string;
+  public gender!: string;
 
-  public tamanho!: number;
+  public size!: number;
 
-  public quantidade!: string;
+  public quantity!: number;
 
 }
 
@@ -23,19 +23,24 @@ Inventory.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  tipo: {
+  type: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: false,
   },
-  tamanho: {
-    type: DataTypes.NUMBER,
-    allowNull: true,
+  gender: {
+    type: DataTypes.STRING,
+    allowNull: false,
     unique: false,
   },
-  quantidade: {
-    type: DataTypes.NUMBER,
-    allowNull: true,
+  size: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    unique: false,
+  },
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
     unique: false,
   },
 }, {

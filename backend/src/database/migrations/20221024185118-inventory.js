@@ -3,50 +3,37 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('inventory', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      type: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: false,
       },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: true,
-        unique: false,
-      },
-      cpf: {
-        type: Sequelize.STRING,
-        allowNull: true,
-        unique: false,
-      },
-      username: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      password: {
+      gender: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: false,
       },
-      createdAt: {
+      size: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        type: Sequelize.DATE,
+        unique: false,
       },
-      updatedAt: {
+      quantity: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        type: Sequelize.DATE,
+        unique: false,
       },
     });
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('inventory');
   }
 };
