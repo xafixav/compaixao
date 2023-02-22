@@ -1,26 +1,13 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '.';
-import Comentary from './Comentary';
 
-class Assisted extends Model {
+class Comentary extends Model {
 
-	public id!: number;  
+	public id!: number;
   
-	public assistedId!: number;
-  
-	public name!: string;
+	public assistedId!: string;
 
-	public bornAge!: string;
-
-	public bornCity!: string;
-
-	public bornState!: string;
-
-	public jobProfession!: string;  
-
-	public cpf!: string;
-
-	public livingState!: string;
+	public comentary!: string;
 
 	public createdAt!: number;
 
@@ -28,7 +15,7 @@ class Assisted extends Model {
 
 }
 
-Assisted.init({
+Comentary.init({
 	id: {
 		type: DataTypes.INTEGER,
 		allowNull: false,
@@ -36,42 +23,16 @@ Assisted.init({
 		primaryKey: true,
 		autoIncrement: true,
 	},
-	name: {
-		type: DataTypes.STRING,
-		allowNull: false,
-		unique: false,
-	},
 	assistedId: {
-		type: DataTypes.INTEGER,
-		allowNull: false,
-		unique: false,
-	},
-	bornAge: {
 		type: DataTypes.STRING,
 		allowNull: false,
 		unique: false,
+		references: {
+			model: 'assisted',
+			key: 'id'
+		}
 	},
-	bornCity: {
-		type: DataTypes.STRING,
-		allowNull: false,
-		unique: false,
-	},
-	bornState: {
-		type: DataTypes.STRING,
-		allowNull: false,
-		unique: false,
-	},
-	jobProfession: {
-		type: DataTypes.STRING,
-		allowNull: true,
-		unique: false,
-	},
-	cpf: {
-		type: DataTypes.STRING,
-		allowNull: true,
-		unique: false,
-	},
-	livingState: {
+	comentary: {
 		type: DataTypes.STRING,
 		allowNull: false,
 		unique: false,
@@ -80,7 +41,7 @@ Assisted.init({
 	// ... Outras configs
 	underscored: false,
 	sequelize: db,
-	tableName: 'assisted',
+	tableName: 'comentary',
 	timestamps: true,
 });
 
@@ -95,6 +56,5 @@ Assisted.init({
 // Example.hasMany(OtherModel, { foreignKey: 'campoC', as: 'campoEstrangeiroC' });
 // Example.hasMany(OtherModel, { foreignKey: 'campoD', as: 'campoEstrangeiroD' });
 
-Assisted.hasMany(Comentary, {foreignKey: 'id', as: 'comentaries'});
 
-export default Assisted;
+export default Comentary;

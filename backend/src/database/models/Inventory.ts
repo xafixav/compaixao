@@ -3,52 +3,52 @@ import db from '.';
 
 class Inventory extends Model {
 
-  public id!: number;
+	public id!: number;
   
-  public type!: string;
+	public type!: string;
 
-  public gender!: string;
+	public gender!: string;
 
-  public size!: number;
+	public size!: number;
 
-  public quantity!: number;
+	public quantity!: number;
 
 }
 
 Inventory.init({
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    unique: true,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  type: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: false,
-  },
-  gender: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: false,
-  },
-  size: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    unique: false,
-  },
-  quantity: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    unique: false,
-  },
+	id: {
+		type: DataTypes.INTEGER,
+		allowNull: false,
+		unique: true,
+		primaryKey: true,
+		autoIncrement: true,
+	},
+	type: {
+		type: DataTypes.STRING,
+		allowNull: false,
+		unique: false,
+	},
+	gender: {
+		type: DataTypes.STRING,
+		allowNull: false,
+		unique: false,
+	},
+	size: {
+		type: DataTypes.INTEGER,
+		allowNull: false,
+		unique: false,
+	},
+	quantity: {
+		type: DataTypes.INTEGER,
+		allowNull: false,
+		unique: false,
+	},
 }, {
-  // ... Outras configs
-  underscored: false,
-  sequelize: db,
-  tableName: 'inventory',
-  timestamps: false,
+	// ... Outras configs
+	underscored: false,
+	sequelize: db,
+	tableName: 'inventory',
+	timestamps: true,
 });
 
 /**
