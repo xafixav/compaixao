@@ -5,30 +5,25 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
 	async up (queryInterface, Sequelize) {
-		await queryInterface.createTable('inventory', {
+		await queryInterface.createTable('comentary', {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER
 			},
-			type: {
+			assistedId: {
 				type: Sequelize.STRING,
 				allowNull: false,
 				unique: false,
+				onDelete: 'CASCADE',
+				references: {
+					model: 'assisted',
+					key: 'id'
+				}
 			},
-			gender: {
+			comentary: {
 				type: Sequelize.STRING,
-				allowNull: false,
-				unique: false,
-			},
-			size: {
-				type: Sequelize.INTEGER,
-				allowNull: false,
-				unique: false,
-			},
-			quantity: {
-				type: Sequelize.INTEGER,
 				allowNull: false,
 				unique: false,
 			},
@@ -44,6 +39,6 @@ module.exports = {
 	},
 
 	async down (queryInterface, _Sequelize) {
-		await queryInterface.dropTable('inventory');
+		await queryInterface.dropTable('comentary');
 	}
 };
