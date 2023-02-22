@@ -1,3 +1,3 @@
-import assistedRouter from "./assisted";
+import assistedRouter from './assisted';
 
-export default [assistedRouter]
+export default [assistedRouter];
