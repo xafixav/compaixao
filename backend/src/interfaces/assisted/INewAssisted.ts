@@ -1,5 +1,5 @@
 interface INewAssisted {
-    assistedId: number,
+    assistedNumber: number,
     name: string,
     bornAge: string,
     bornCity: string,
@@ -7,6 +7,9 @@ interface INewAssisted {
     jobProfession: string,  
     cpf: string,
     livingState: string,
+    gender: string,
+	shoesNumber: number,
+	legsNumber: number,
+	shirtNumber: number,
 }
-
 export default INewAssisted;

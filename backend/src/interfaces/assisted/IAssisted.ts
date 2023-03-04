@@ -1,7 +1,9 @@
-import INewAssisted from "./INewAssisted";
+import INewAssisted from './INewAssisted';
 
-export default interface IAssisted extends INewAssisted {
+interface IAssisted extends INewAssisted {
     id: number,
-    createdAt: number,
-    updatedAt: number,
+    createdAt?: number,
+    updatedAt?: number,
 }
+
+export default IAssisted;

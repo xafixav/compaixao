@@ -1,4 +1,6 @@
-export default interface INewComentary {
+interface INewComentary {
   assistedId: number,
   comentary: string,
 }
+
+export default INewComentary;
