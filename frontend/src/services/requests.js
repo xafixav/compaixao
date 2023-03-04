@@ -12,9 +12,14 @@ const getAllAssisted = async () => {
     return data;
 }
 
-const registerAssisted = async (newAssisted) => {
-    const { data } = await api.post('/assisted/register', newAssisted);
+const registerAssisted = async (object) => {
+    const { data } = await api.post('/assisted/register', object);
     return data;
 }
 
-export { getAllAssisted, registerAssisted }
+const registerProduct = async (object) => {
+  const { data } = await api.post('/assisted/register', object);
+  return data;
+}
+
+export { getAllAssisted, registerAssisted, registerProduct }

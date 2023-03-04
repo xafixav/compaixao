@@ -5,21 +5,15 @@ import {   BrowserRouter as Router,
 import './App.css';
 import Forms from './components/Forms';
 import AssistedInfo from './components/AssistedInfo'
+import Formulary from './components/Formulary';
+import Header from './components/Header';
 
 function App() {
   return (
     <Router>
-      <div className='header'>
-
-        <li className='headerLinks'>
-          <Link to="/">Registrar</Link>
-        </li>
-        <li className='headerLinks'>
-          <Link to="/assisted">Lista de registrados</Link>
-        </li>
-      </div>
+      {Header()}
         <Routes>
-          <Route exact path='/' element={<Forms/>}/>
+          <Route exact path='/' element={<Formulary/>}/>
           <Route exact path='/assisted' element={<AssistedInfo/>}/>
         </Routes>
     </Router>

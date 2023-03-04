@@ -27,3 +27,7 @@
 .headerLinks {
   font-size: large;
 }
+
+html {
+  background-color: #333;
+}
