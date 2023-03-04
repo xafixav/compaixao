@@ -26,7 +26,7 @@ export default class AssistedController {
 				shoesNumber
 			} = req.body;
 
-			const assistedResponse = await this.assistedService.register({ 
+			const assistedResponse = await this.assistedService.create({ 
 				assistedNumber,
 				cpf,
 				livingState,
