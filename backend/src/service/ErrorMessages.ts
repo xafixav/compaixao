@@ -5,13 +5,21 @@ const ERROR_MESSAGES = {
 	ASSISTED_NAME_MISSING: 'Nome do assistenciado não informada',
 	ASSISTED_LIVING_STATE_MISSING: 'Moradia do assistenciado não informado',
 	ASSISTED_REGISTER_FAILURE: 'Falha ao registrar o assistenciado',
-	ASSISTED_BORN_CITY_MISSING: 'Cidade de nascimento do assistenciado não informada',
-	ASSISTED_BORN_STATE_MISSING: 'Cidade de nascimento do assistenciado não informada',
+	ASSISTED_UPDATE_FAILURE: 'Falha ao atualizar o assistenciado',
 	ASSISTED_BORN_AGE_MISSING: 'Data de nascimento do assistenciado não informado',
+	ASSISTED_BORN_CITY_MISSING: 'Cidade de nascimento do assistenciado não informado',
+	ASSISTED_BORN_STATE_MISSING: 'Estado de nascimento do assistenciado não informado',
+	ASSISTED_GENDER_MISSING: 'Genero do assistenciado não informada ou mal formado',
+	ASSISTED_LEGS_NUMBER_MISSING: 'Tamanho da calça do assistenciado não informado ou mal formado',
+	ASSISTED_SHOES_NUMBER_MISSING: 'Tamanho do Tenis do assistenciado não informado ou mal formado',
+	ASSISTED_SHIRT_NUMBER_MISSING: 'Tamanho da Camiseta do assistenciado não informado ou mal formado',
 	PRODUCT_SIZE_NOT_INFORMED: 'Tamanho do produto não informado.',
 	PRODUCT_QUANTITY_NOT_INFORMED: 'Quantidade do produto não informado.',
 	PRODUCT_TYPE_NOT_INFORMED: 'Tipo do produto não informado.',
 	PRODUCT_GENDER_NOT_INFORMED: 'Genero do produto não informado.',
+	COMENTARY_SIZE_TOO_LARGE: 'Comentario nao pode passar de 254 caracteres.',
+	COMENTARY_NOT_INFORMED: 'O campo Comentario nao pode estar vazio.',
+	COMENTARY_ASSISTED_ID_NOT_INFORMED: 'Id do Assistenciado não informado.',
 };
 
 export default ERROR_MESSAGES;
