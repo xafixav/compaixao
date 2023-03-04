@@ -23,7 +23,7 @@ export default class AssistedService {
 		}
 	};
 
-	public register = async (data: INewAssisted): Promise<IAssisted> => {
+	public create = async (data: INewAssisted): Promise<IAssisted> => {
 		try {
 			this.start();
 
