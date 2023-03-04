@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import NewAssistedSchema from '../../service/schema/newAssistedSchema';
+import Schema from '../../service/schema/newComentarySchema';
 
-export default class AssistedMiddleware {
+export default class ComentaryMiddleware {
 	private started: boolean;
 
 	constructor() {
@@ -18,32 +18,11 @@ export default class AssistedMiddleware {
 	public newAssistedIsValid = (req: Request, res: Response, next: NextFunction) => {
 		try {
 			const { 
-				assistedNumber,
-				cpf,
-				livingState,
-				name,
-				bornAge,
-				bornCity,
-				bornState,
-				jobProfession,
-				gender,
-				legsNumber,
-				shirtNumber,
-				shoesNumber  } = req.body;
+				assistedId, comentary
+			} = req.body;
   
-			const { error } = NewAssistedSchema.defaultSchema.validate({
-				assistedNumber,
-				cpf,
-				livingState,
-				name,
-				bornAge,
-				bornCity,
-				bornState,
-				jobProfession,
-				gender,
-				legsNumber,
-				shirtNumber,
-				shoesNumber
+			const { error } = Schema.defaultSchema.validate({
+				assistedId, comentary
 			}, { convert: false });
 			
 			if (error) {
@@ -61,35 +40,11 @@ export default class AssistedMiddleware {
 	public updateAssistedIsValid = (req: Request, res: Response, next: NextFunction) => {
 		try {
 			const { 
-				id,
-				assistedNumber,
-				cpf,
-				livingState,
-				name,
-				bornAge,
-				bornCity,
-				bornState,
-				jobProfession,
-				gender,
-				legsNumber,
-				shirtNumber,
-				shoesNumber 
+				id, assistedId, comentary
 			} = req.body;
   
-			const { error } = NewAssistedSchema.updateSchema.validate({
-				id,
-				assistedNumber,
-				cpf,
-				livingState,
-				name,
-				bornAge,
-				bornCity,
-				bornState,
-				jobProfession,
-				gender,
-				legsNumber,
-				shirtNumber,
-				shoesNumber
+			const { error } = Schema.updateSchema.validate({
+				id, assistedId, comentary
 			}, { convert: false });
 			
 			if (error) {
