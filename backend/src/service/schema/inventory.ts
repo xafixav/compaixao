@@ -2,7 +2,7 @@ import Joi from 'joi';
 import ERROR_MESSAGES from '../ErrorMessages';
 import { StatusCodes } from 'http-status-codes';
 
-export default class NewAssistedSchema {
+export default class Schema {
 
 	public static defaultSchema = Joi.object({
 		size: Joi.number().min(1).required().messages({
