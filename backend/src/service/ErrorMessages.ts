@@ -18,8 +18,13 @@ const ERROR_MESSAGES = {
 	PRODUCT_TYPE_NOT_INFORMED: 'Tipo do produto não informado.',
 	PRODUCT_GENDER_NOT_INFORMED: 'Genero do produto não informado.',
 	COMENTARY_SIZE_TOO_LARGE: 'Comentario nao pode passar de 254 caracteres.',
+	COMENTARY_CREATION_FAILURE: 'Falha ao criar o comentario.',
+	COMENTARY_UPDATE_FAILURE: 'Falha ao atualizar o comentario.',
 	COMENTARY_NOT_INFORMED: 'O campo Comentario nao pode estar vazio.',
 	COMENTARY_ASSISTED_ID_NOT_INFORMED: 'Id do Assistenciado não informado.',
+	INVENTORY_UPDATE_FAILURE: 'Falha ao atualizar item do inventario.',
+	INVENTORY_CREATION_FAILURE: 'Falha ao criar item no inventario.',
+	NOT_FOUND: 'Nada encontrado no banco.'
 };
 
 export default ERROR_MESSAGES;
