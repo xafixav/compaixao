@@ -48,17 +48,17 @@ module.exports = {
 				unique: false,
 			},
 			shoesNumber: {
-				type: Sequelize.NUMBER,
+				type: Sequelize.INTEGER,
 				allowNull: true,
 				unique: false,
 			},
 			legsNumber: {
-				type: Sequelize.NUMBER,
+				type: Sequelize.INTEGER,
 				allowNull: true,
 				unique: false,
 			},
 			shirtNumber: {
-				type: Sequelize.NUMBER,
+				type: Sequelize.INTEGER,
 				allowNull: true,
 				unique: false,
 			},
