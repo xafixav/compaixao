@@ -1,5 +1,5 @@
 interface INewRelationalInventory {
-  userId: string,
+  assistedId: string,
   inventoryId: string,
   quantity: number,
 }
