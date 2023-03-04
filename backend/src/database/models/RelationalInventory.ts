@@ -70,7 +70,7 @@ RelationalInventory.init({
 // Example.hasMany(OtherModel, { foreignKey: 'campoD', as: 'campoEstrangeiroD' });
 
 RelationalInventory.hasMany(Inventory, { foreignKey: 'id', as: 'product', onDelete: 'CASCADE' });
-RelationalInventory.hasMany(Assisted, { foreignKey: 'id', as: 'product', onDelete: 'CASCADE' });
+RelationalInventory.hasMany(Assisted, { foreignKey: 'id', as: 'assisted', onDelete: 'CASCADE' });
 
 
 export default RelationalInventory;

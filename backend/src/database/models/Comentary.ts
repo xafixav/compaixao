@@ -5,7 +5,7 @@ class Comentary extends Model {
 
 	public id!: number;
   
-	public assistedId!: string;
+	public assistedId!: number;
 
 	public comentary!: string;
 
@@ -24,7 +24,7 @@ Comentary.init({
 		autoIncrement: true,
 	},
 	assistedId: {
-		type: DataTypes.STRING,
+		type: DataTypes.NUMBER,
 		allowNull: false,
 		unique: false,
 		references: {

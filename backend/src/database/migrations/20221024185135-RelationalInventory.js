@@ -12,7 +12,7 @@ module.exports = {
 				primaryKey: true,
 				type: Sequelize.INTEGER
 			},
-			userId: {
+			assistedId: {
 				type: Sequelize.INTEGER,
 				allowNull: false,
 				unique: false,

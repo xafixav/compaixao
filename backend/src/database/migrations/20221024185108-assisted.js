@@ -12,7 +12,7 @@ module.exports = {
 				primaryKey: true,
 				type: Sequelize.INTEGER
 			},
-			assistedId: {
+			assistedNumber: {
 				type: Sequelize.INTEGER,
 				allowNull: false,
 				unique: false,
@@ -39,6 +39,26 @@ module.exports = {
 			},
 			jobProfession: {
 				type: Sequelize.STRING,
+				allowNull: true,
+				unique: false,
+			},
+			gender: {
+				type: Sequelize.STRING,
+				allowNull: true,
+				unique: false,
+			},
+			shoesNumber: {
+				type: Sequelize.NUMBER,
+				allowNull: true,
+				unique: false,
+			},
+			legsNumber: {
+				type: Sequelize.NUMBER,
+				allowNull: true,
+				unique: false,
+			},
+			shirtNumber: {
+				type: Sequelize.NUMBER,
 				allowNull: true,
 				unique: false,
 			},

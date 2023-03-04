@@ -8,7 +8,7 @@ module.exports = {
      */
 		await queryInterface.bulkInsert('assisted', [
 			{
-				assistedId: 2,
+				assistedNumber: 2,
 				name: 'Kleber Camargo',
 				bornAge: '14/03/1987',
 				bornCity: 'Limeira',
@@ -16,11 +16,15 @@ module.exports = {
 				jobProfession: '',
 				cpf: 13215818978,
 				livingState: 'Rua',
+				gender: 'Masculino',
+				shoesNumber: 35,
+				legsNumber: 35,
+				shirtNumber: 35,
 				createdAt: new Date(),
 				updatedAt: new Date(),
 			},
 			{
-				assistedId: 4,
+				assistedNumber: 4,
 				name: 'Angela da Silva Junior',
 				bornAge: '14/03/1987',
 				bornCity: 'Campinas',
@@ -28,6 +32,10 @@ module.exports = {
 				jobProfession: '',
 				cpf: 33215558978,
 				livingState: 'Rua',
+				gender: 'Feminino',
+				shoesNumber: 35,
+				legsNumber: 35,
+				shirtNumber: 35,
 				createdAt: new Date(),
 				updatedAt: new Date(),
 			},

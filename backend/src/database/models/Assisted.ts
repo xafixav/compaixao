@@ -4,9 +4,9 @@ import Comentary from './Comentary';
 
 class Assisted extends Model {
 
-	public id!: number;  
+	public id!: number;
   
-	public assistedId!: number;
+	public assistedNumber!: number;
   
 	public name!: string;
 
@@ -16,11 +16,19 @@ class Assisted extends Model {
 
 	public bornState!: string;
 
-	public jobProfession!: string;  
+	public jobProfession!: string;
 
 	public cpf!: string;
 
 	public livingState!: string;
+	
+	public gender!: string;
+
+	public shoesNumber!: number;
+
+	public legsNumber!: number;
+
+	public shirtNumber!: number;
 
 	public createdAt!: number;
 
@@ -41,7 +49,7 @@ Assisted.init({
 		allowNull: false,
 		unique: false,
 	},
-	assistedId: {
+	assistedNumber: {
 		type: DataTypes.INTEGER,
 		allowNull: false,
 		unique: false,
@@ -63,6 +71,26 @@ Assisted.init({
 	},
 	jobProfession: {
 		type: DataTypes.STRING,
+		allowNull: true,
+		unique: false,
+	},
+	gender: {
+		type: DataTypes.STRING,
+		allowNull: true,
+		unique: false,
+	},
+	shoesSize: {
+		type: DataTypes.NUMBER,
+		allowNull: true,
+		unique: false,
+	},
+	legsNumber: {
+		type: DataTypes.NUMBER,
+		allowNull: true,
+		unique: false,
+	},
+	shirtNumber: {
+		type: DataTypes.NUMBER,
 		allowNull: true,
 		unique: false,
 	},

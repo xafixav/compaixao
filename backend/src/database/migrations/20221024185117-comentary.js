@@ -13,7 +13,7 @@ module.exports = {
 				type: Sequelize.INTEGER
 			},
 			assistedId: {
-				type: Sequelize.STRING,
+				type: Sequelize.INTEGER,
 				allowNull: false,
 				unique: false,
 				onDelete: 'CASCADE',
@@ -38,7 +38,7 @@ module.exports = {
 		});
 	},
 
-	async down (queryInterface, _Sequelize) {
+	async down (queryInterface, Sequelize) {
 		await queryInterface.dropTable('comentary');
 	}
 };
