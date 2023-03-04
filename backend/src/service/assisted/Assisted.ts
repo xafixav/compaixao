@@ -27,9 +27,35 @@ export default class AssistedService {
 		try {
 			this.start();
 
-			const { assistedId, cpf, livingState, name, bornAge, bornCity, bornState, jobProfession } = data;
+			const { 
+				assistedNumber,
+				cpf,
+				livingState,
+				name,
+				bornAge,
+				bornCity,
+				bornState,
+				jobProfession,
+				gender,
+				legsNumber,
+				shirtNumber,
+				shoesNumber 
+			} = data;
 
-			const newAssisted = await this.assistedModel.create({ assistedId, cpf, livingState, name, bornAge, bornCity, bornState, jobProfession });
+			const newAssisted = await this.assistedModel.create({ 
+				assistedNumber,
+				cpf,
+				livingState,
+				name, 
+				bornAge,
+				bornCity,
+				bornState,
+				jobProfession,
+				gender,
+				legsNumber,
+				shirtNumber,
+				shoesNumber
+			});
       
 			if (newAssisted) {
 				return newAssisted;
@@ -49,6 +75,54 @@ export default class AssistedService {
 			if (newAssisted) {
 				return newAssisted;
 			}
+			throw new ErrorManager({ status: StatusCodes.BAD_REQUEST, message: ERROR_MESSAGES.ASSISTED_REGISTER_FAILURE });
+
+		} catch (e: any) {
+			throw new ErrorManager({ status: StatusCodes.BAD_REQUEST, message: e.message });
+		}
+	};
+
+	public update = async (data:IAssisted): Promise<IAssisted> => {
+		try {
+			this.start();
+
+			const {
+				id,
+				assistedNumber,
+				cpf,
+				livingState,
+				name,
+				bornAge,
+				bornCity,
+				bornState,
+				jobProfession,
+				gender,
+				legsNumber,
+				shirtNumber,
+				shoesNumber
+			} = data;
+
+			const newAssisted = await this.assistedModel.update({ 
+				assistedNumber,
+				cpf,
+				livingState,
+				name,
+				bornAge,
+				bornCity,
+				bornState,
+				jobProfession,
+				gender,
+				legsNumber,
+				shirtNumber,
+				shoesNumber
+			},
+			{ where: { id } }
+			);
+
+			if (newAssisted[0] > 0) {
+				return data;
+			}
+			
 			throw new ErrorManager({ status: StatusCodes.BAD_REQUEST, message: ERROR_MESSAGES.ASSISTED_REGISTER_FAILURE });
 
 		} catch (e: any) {
