@@ -7,7 +7,7 @@ const config: Options = {
 	database: process.env.DB_NAME || 'COMPAIXAO_AQUECE',
 	host: process.env.DB_HOST || 'localhost',
 	port: Number(process.env.DB_PORT) || 3005,
-	dialect: 'mysql',
+	dialect: 'postgres',
 	dialectOptions: {
 		timezone: 'Z',
 	},
