@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import NewAssistedSchema from '../../service/schema/newAssistedSchema';
+import Schema from '../../service/schema/inventory';
 
 export default class InventoryMiddleware {
 	private started: boolean;
@@ -15,13 +15,47 @@ export default class InventoryMiddleware {
 		}
 	};
 
-	public newAssistedIsValid = (req: Request, res: Response, next: NextFunction) => {
+	public createIsValid = (req: Request, res: Response, next: NextFunction) => {
 		try {
-			const { assistedId, cpf, livingState, name, bornAge, bornCity, bornState, jobProfession } = req.body;
+			const { 
+				type,
+				gender,
+				size,
+				quantity, } = req.body;
   
-			const { error } = NewAssistedSchema.defaultSchema.validate({
-				assistedId, cpf, livingState, name, bornAge, bornCity, bornState, jobProfession
-			}, { convert: false });
+			const { error } = Schema.defaultSchema.validate({ 
+				type,
+				gender,
+				size,
+				quantity, }, { convert: false });
+  
+			if (error) {
+				const [StatusCode, ErrorMessage] = error.details[0].message.split('|');
+				return res.status(Number(StatusCode)).json({ message: ErrorMessage });
+			}
+  
+			next();
+
+		} catch(e: any) {
+			return res.status(StatusCodes.BAD_REQUEST).json({ message: e.message });
+		}
+	};
+
+	public updateIsValid = (req: Request, res: Response, next: NextFunction) => {
+		try {
+			const {
+				id,
+				type,
+				gender,
+				size,
+				quantity } = req.body;
+  
+			const { error } = Schema.defaultSchema.validate({
+				id,
+				type,
+				gender,
+				size,
+				quantity }, { convert: false });
   
 			if (error) {
 				const [StatusCode, ErrorMessage] = error.details[0].message.split('|');

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import Schema from '../../service/schema/newComentarySchema';
+import Schema from '../../service/schema/comentary';
 
 export default class ComentaryMiddleware {
 	private started: boolean;
@@ -15,7 +15,7 @@ export default class ComentaryMiddleware {
 		}
 	};
 
-	public newAssistedIsValid = (req: Request, res: Response, next: NextFunction) => {
+	public createIsValid = (req: Request, res: Response, next: NextFunction) => {
 		try {
 			const { 
 				assistedId, comentary
@@ -37,7 +37,7 @@ export default class ComentaryMiddleware {
 		}
 	};
 
-	public updateAssistedIsValid = (req: Request, res: Response, next: NextFunction) => {
+	public updateIsValid = (req: Request, res: Response, next: NextFunction) => {
 		try {
 			const { 
 				id, assistedId, comentary

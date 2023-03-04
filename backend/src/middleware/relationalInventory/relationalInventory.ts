@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import Schema from '../../service/schema/assisted';
+import Schema from '../../service/schema/relationalInventory';
 
-export default class AssistedMiddleware {
+export default class RelationalInventoryMiddleware {
 	private started: boolean;
 
 	constructor() {
@@ -18,34 +18,15 @@ export default class AssistedMiddleware {
 	public createIsValid = (req: Request, res: Response, next: NextFunction) => {
 		try {
 			const { 
-				assistedNumber,
-				cpf,
-				livingState,
-				name,
-				bornAge,
-				bornCity,
-				bornState,
-				jobProfession,
-				gender,
-				legsNumber,
-				shirtNumber,
-				shoesNumber  } = req.body;
+				assistedId,
+				inventoryId,
+				quantity } = req.body;
   
-			const { error } = Schema.defaultSchema.validate({
-				assistedNumber,
-				cpf,
-				livingState,
-				name,
-				bornAge,
-				bornCity,
-				bornState,
-				jobProfession,
-				gender,
-				legsNumber,
-				shirtNumber,
-				shoesNumber
-			}, { convert: false });
-			
+			const { error } = Schema.defaultSchema.validate({ 
+				assistedId,
+				inventoryId,
+				quantity }, { convert: false });
+  
 			if (error) {
 				const [StatusCode, ErrorMessage] = error.details[0].message.split('|');
 				return res.status(Number(StatusCode)).json({ message: ErrorMessage });
@@ -60,38 +41,18 @@ export default class AssistedMiddleware {
 
 	public updateIsValid = (req: Request, res: Response, next: NextFunction) => {
 		try {
-			const { 
+			const {
 				id,
-				assistedNumber,
-				cpf,
-				livingState,
-				name,
-				bornAge,
-				bornCity,
-				bornState,
-				jobProfession,
-				gender,
-				legsNumber,
-				shirtNumber,
-				shoesNumber 
-			} = req.body;
+				assistedId,
+				inventoryId,
+				quantity } = req.body;
   
-			const { error } = Schema.updateSchema.validate({
+			const { error } = Schema.defaultSchema.validate({
 				id,
-				assistedNumber,
-				cpf,
-				livingState,
-				name,
-				bornAge,
-				bornCity,
-				bornState,
-				jobProfession,
-				gender,
-				legsNumber,
-				shirtNumber,
-				shoesNumber
-			}, { convert: false });
-			
+				assistedId,
+				inventoryId,
+				quantity }, { convert: false });
+  
 			if (error) {
 				const [StatusCode, ErrorMessage] = error.details[0].message.split('|');
 				return res.status(Number(StatusCode)).json({ message: ErrorMessage });
