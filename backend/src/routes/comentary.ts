@@ -1,23 +1,30 @@
 import * as express from 'express';
-import AssistedController from '../controller/assisted/assisted';
-import AssistedMiddleware from '../middleware/assisted/assisted';
+import Controller from '../controller/comentary/comentary';
+import Middleware from '../middleware/comentary/comentary';
 
-const { register, getAll } = new AssistedController();
-const { newAssistedIsValid } = new AssistedMiddleware();
+const { create, getAll, update } = new Controller();
+const { createIsValid, updateIsValid } = new Middleware();
 
-const assistedRouter = express.Router();
+const comentaryRouter = express.Router();
 
-assistedRouter
-	.route('/assisted/register')
+comentaryRouter
+	.route('/assisted/comentary/register')
 	.post(
-		newAssistedIsValid,
-		register,
+		createIsValid,
+		create,
 	);
 
-assistedRouter
-	.route('/assisted/getall')
+comentaryRouter
+	.route('/assisted/comentary/:id')
 	.get(
 		getAll,
 	);
 
-export default assistedRouter;
+comentaryRouter
+	.route('/assisted/comentary/update')
+	.post(
+		updateIsValid,
+		update,
+	);
+
+export default comentaryRouter;

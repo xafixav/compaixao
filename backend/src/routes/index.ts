@@ -1,3 +1,4 @@
 import assistedRouter from './assisted';
+import comentaryRouter from './comentary';
 
-export default [assistedRouter];
+export default [assistedRouter, comentaryRouter];

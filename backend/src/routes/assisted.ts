@@ -1,16 +1,16 @@
 import * as express from 'express';
-import AssistedController from '../controller/assisted/assisted';
-import AssistedMiddleware from '../middleware/assisted/assisted';
+import Controller from '../controller/assisted/assisted';
+import Middleware from '../middleware/assisted/assisted';
 
-const { register, getAll, update } = new AssistedController();
-const { newAssistedIsValid, updateAssistedIsValid } = new AssistedMiddleware();
+const { register, getAll, update } = new Controller();
+const { createIsValid, updateIsValid } = new Middleware();
 
 const assistedRouter = express.Router();
 
 assistedRouter
 	.route('/assisted/register')
 	.post(
-		newAssistedIsValid,
+		createIsValid,
 		register,
 	);
 
@@ -23,7 +23,7 @@ assistedRouter
 assistedRouter
 	.route('/assisted/update')
 	.get(
-		updateAssistedIsValid,
+		updateIsValid,
 		update,
 	);
 
