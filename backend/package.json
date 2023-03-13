@@ -2,7 +2,7 @@
   "name": "users",
   "version": "1.0.0",
   "description": "database backend",
-  "main": "./build/server",
+  "main": "./public/server",
   "scripts": {
     "start": "node .",
     "test": "mocha -r ts-node/register ./src/tests/*$NAME*.{test,spec}.ts -t 10000 --exit",
