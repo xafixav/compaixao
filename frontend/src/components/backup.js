@@ -1,130 +1,69 @@
-import React, { useState } from "react";
-import "../styles/Formulary.css"; // import the CSS file
-import {getAllAssisted, registerAssisted} from '../services/requests';
-
-function Formulary() {
-  const [assistedNumber, setAssistedNumber] = useState("");
-  const [name, setName] = useState("");
-  const [bornAge, setBornAge] = useState("");
-  const [bornCity, setBornCity] = useState("");
-  const [bornState, setBornState] = useState("");
-  const [jobProfession, setJobProfession] = useState("");
-  const [cpf, setCpf] = useState("");
-  const [livingState, setLivingState] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    registerAssisted({
-      assistedNumber,
-      name,
-      bornAge,
-      bornCity,
-      bornState,
-      jobProfession,
-      cpf,
-      livingState,
-    });
-    setAssistedNumber("");
-    setName("");
-    setBornAge("");
-    setBornCity("");
-    setBornState("");
-    setJobProfession("");
-    setCpf("");
-    setLivingState("");
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="form-container">
-      <h1 className="form-title">Formulario de Assistenciados</h1>
-      <div className="form-row">
-        <label className="form-label">
-          Numero:
-          <input
-            type="number"
-            value={assistedNumber}
-            onChange={(event) => setAssistedNumber(event.target.value)}
-            className="form-input"
-          />
-        </label>
-        <label className="form-label">
-          Nome:
-          <input
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            className="form-input"
-          />
-        </label>
-      </div>
-      <div className="form-row">
-        <label className="form-label">
-          Data de nascimento:
-          <input
-            type="date"
-            value={bornAge}
-            onChange={(event) => setBornAge(event.target.value)}
-            className="form-input"
-          />
-        </label>
-        <label className="form-label">
-          Cidade de origem:
-          <input
-            type="text"
-            value={bornCity}
-            onChange={(event) => setBornCity(event.target.value)}
-            className="form-input"
-          />
-        </label>
-      </div>
-      <div className="form-row">
-        <label className="form-label">
-          Estado de origem:
-          <input
-            type="text"
-            value={bornState}
-            onChange={(event) => setBornState(event.target.value)}
-            className="form-input"
-          />
-        </label>
-        <label className="form-label">
-          Profissão:
-          <input
-            type="text"
-            value={jobProfession}
-            onChange={(event) => setJobProfession(event.target.value)}
-            className="form-input"
-          />
-        </label>
-      </div>
-      <div className="form-row">
-        <label className="form-label">
-          CPF:
-          <input
-            type="text"
-            value={cpf}
-            onChange={(event) => setCpf(event.target.value)}
-            className="form-input"
-          />
-        </label>
-        <label className="form-label">
-        Estado de vida:
-          <select 
-            value='Albergue' 
-            onChange={(event) => setLivingState(event.target.value)}
-            className="form-input"
-          >
-              <option value='Rua'>Rua</option>
-              <option value='Albergue'>Albergue</option>
-              <option value='Casa'>Casa</option>
-          </select>
-        </label>
-      </div>
-      <button type="submit" className="form-button">
-        Submit
-      </button>
-    </form>
-  );
-}
-
-export default Formulary;
+/* eslint-disable max-len */
+// <Container>
+// <Form onSubmit={handleSubmit}>
+//   <Form.Group>
+//     <Form.Label>Numero da pulseira</Form.Label>
+//     <Form.Control type="number" placeholder="Insira Numero da pulseira" value={assistedNumber} onChange={(e) => setAssistedNumber(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>Nome</Form.Label>
+//     <Form.Control type="text" placeholder="Insira Nome" value={name} onChange={(e) => setName(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>Data de nascimento</Form.Label>
+//     <Form.Control type="date" placeholder="Insira Data de nascimento" value={bornAge} onChange={(e) => setBornAge(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>Cidade de nascimento</Form.Label>
+//     <Form.Control type="text" placeholder="Insira Cidade de nascimento" value={bornCity} onChange={(e) => setBornCity(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>Estado de nascimento</Form.Label>
+//     <Form.Control type="text" placeholder="Insira Estado de nascimento" value={bornState} onChange={(e) => setBornState(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>Profissão de Trabalho</Form.Label>
+//     <Form.Control type="text" placeholder="Insira Profissão de Trabalho" value={jobProfession} onChange={(e) => setJobProfession(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>CPF</Form.Label>
+//     <Form.Control type="text" placeholder="Insira CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>Estado de vida</Form.Label>
+//     <Form.Control type="text" placeholder="Insira Estado de vida" value={livingState} onChange={(e) => setLivingState(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group controlId="exampleForm.ControlSelect1">
+//     <Form.Label>Genero</Form.Label>
+//     <Form.Control as="select" placeholder="Insira Genero" value={gender} onChange={(e) => setGender(e.target.value)}>
+//       <option>Masculino</option>
+//       <option>Feminino</option>
+//       <option>Outro</option>
+//     </Form.Control>
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>Numero do calçado</Form.Label>
+//     <Form.Control type="number" placeholder="Insira Numero do calçado" value={shoesNumber} onChange={(e) => setShoesNumber(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>Numero da calça/bermuda</Form.Label>
+//     <Form.Control type="number" placeholder="Insira Numero da calça/bermuda" value={legsNumber} onChange={(e) => setLegsNumber(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>Numero da Camisa</Form.Label>
+//     <Form.Control type="number" placeholder="Insira Numero da Camisa" value={shirtNumber} onChange={(e) => setShirtNumber(e.target.value)} />
+//   </Form.Group>
+//   <Form.Group>
+//     <Form.Label>Deseja passar a noite</Form.Label>
+//     <Form.Check type="checkbox"
+//     placeholder="Insira Deseja passar a noite"
+//     value={sleepOver}
+//     onChange={(e) => setSleepOver(e.target.value)}
+//     id="checkbox1"
+//     />
+//   </Form.Group>
+//   <Button variant="primary" type="submit">
+//     Submit
+//   </Button>
+// </Form>
+// </Container> */
