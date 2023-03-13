@@ -75,11 +75,13 @@ export default class ComentaryService {
 				id,
 				assistedId,
 				comentary,
+				prayer,
 			} = data;
 
 			const newAssisted = await this.model.update({ 
 				assistedId,
 				comentary,
+				prayer,
 			},
 			{ where: { id } }
 			);

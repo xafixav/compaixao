@@ -21,7 +21,7 @@ assistedRouter
 
 assistedRouter
 	.route('/assisted/update')
-	.get(
+	.post(
 		update,
 	);
 
