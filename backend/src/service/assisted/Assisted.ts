@@ -39,7 +39,8 @@ export default class AssistedService {
 				gender,
 				legsNumber,
 				shirtNumber,
-				shoesNumber 
+				shoesNumber,
+				sleepOver, 
 			} = data;
 
 			const newAssisted = await this.assistedModel.create({ 
@@ -54,7 +55,8 @@ export default class AssistedService {
 				gender,
 				legsNumber,
 				shirtNumber,
-				shoesNumber
+				shoesNumber,
+				sleepOver,
 			});
       
 			if (newAssisted) {
@@ -99,6 +101,7 @@ export default class AssistedService {
 				gender,
 				legsNumber,
 				shirtNumber,
+				sleepOver,
 				shoesNumber
 			} = data;
 
@@ -114,6 +117,7 @@ export default class AssistedService {
 				gender,
 				legsNumber,
 				shirtNumber,
+				sleepOver,
 				shoesNumber
 			},
 			{ where: { id } }

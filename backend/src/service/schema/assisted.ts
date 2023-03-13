@@ -37,17 +37,17 @@ export default class NewAssistedSchema {
 			'string.min': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_GENDER_MISSING}`,
 			'string.max': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_GENDER_MISSING}`,
 		}),
-		legsNumber: Joi.number().min(1).max(3).required().messages({
+		legsNumber: Joi.number().min(1).max(80).required().messages({
 			'any.required': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_LEGS_NUMBER_MISSING}`,
 			'string.min': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_LEGS_NUMBER_MISSING}`,
 			'string.max': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_LEGS_NUMBER_MISSING}`,
 		}),
-		shoesNumber: Joi.number().min(1).max(3).required().messages({
+		shoesNumber: Joi.number().min(1).max(80).required().messages({
 			'any.required': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_SHOES_NUMBER_MISSING}`,
 			'string.min': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_SHOES_NUMBER_MISSING}`,
 			'string.max': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_SHOES_NUMBER_MISSING}`,
 		}),
-		shirtNumber: Joi.number().min(1).max(3).required().messages({
+		shirtNumber: Joi.number().min(1).max(80).required().messages({
 			'any.required': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_SHIRT_NUMBER_MISSING}`,
 			'string.min': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_SHIRT_NUMBER_MISSING}`,
 			'string.max': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_SHIRT_NUMBER_MISSING}`,
@@ -55,6 +55,14 @@ export default class NewAssistedSchema {
 		livingState: Joi.string().min(3).required().messages({
 			'any.required': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_LIVING_STATE_MISSING}`,
 			'string.min': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_LIVING_STATE_MISSING}`,
+		}),
+		jobProfession: Joi.string().min(3).required().messages({
+			'any.required': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_LIVING_STATE_MISSING}`,
+			'string.min': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.ASSISTED_LIVING_STATE_MISSING}`,
+		}),
+		sleepOver: Joi.boolean().required().messages({
+			'any.required': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.SLEEP_OVER_MUST_BE_A_BOOLEAN}`,
+			'string.min': `${StatusCodes.BAD_REQUEST}|${ERROR_MESSAGES.SLEEP_OVER_MUST_BE_A_BOOLEAN}`,
 		}),
 	});
 

@@ -29,12 +29,14 @@ export default class ComentaryService {
 
 			const { 
 				assistedId,
-				comentary
+				comentary,
+				prayer
 			} = data;
 
 			const response = await this.model.create({ 
 				assistedId,
-				comentary
+				comentary,
+				prayer
 			});
       
 			if (response) {

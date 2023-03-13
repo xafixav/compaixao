@@ -24,6 +24,7 @@ const ERROR_MESSAGES = {
 	COMENTARY_ASSISTED_ID_NOT_INFORMED: 'Id do Assistenciado não informado.',
 	INVENTORY_UPDATE_FAILURE: 'Falha ao atualizar item do inventario.',
 	INVENTORY_CREATION_FAILURE: 'Falha ao criar item no inventario.',
+	SLEEP_OVER_MUST_BE_A_BOOLEAN: 'SleepOver tem que ser um booleano.',
 	NOT_FOUND: 'Nada encontrado no banco.'
 };
 
