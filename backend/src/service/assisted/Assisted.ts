@@ -72,8 +72,8 @@ export default class AssistedService {
 	public getAll = async (): Promise<IAssisted[]> => {
 		try {
 			this.start();
-
-			const newAssisted = await this.assistedModel.findAll();
+			//include comentary in findAll
+			const newAssisted = await this.assistedModel.findAll({ include: ['comentaries']});
 			if (newAssisted) {
 				return newAssisted;
 			}

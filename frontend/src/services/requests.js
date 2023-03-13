@@ -6,30 +6,24 @@ const api = axios.create({
   baseURL: `${url}`,
 });
 
-const getAllAssisted = async () => {
+const getAll = async (endpoint) => {
   // const fetchRequest = await fetch(`${address}/assisted/getall`);
-  const { data } = await api.get('/assisted/getall');
+  const { data } = await api.get(endpoint);
   return data;
 };
 
-const registerAssisted = async (object) => {
-  const { data } = await api.post('/assisted/register', object);
+const register = async (endpoint, object) => {
+  const { data } = await api.post(endpoint, object);
   return data;
 };
 
-const registerAssistedComentary = async (object) => {
-  const { data } = await api.post('/assisted/comentary/register', object);
-  return data;
-};
-
-const registerProduct = async (object) => {
-  const { data } = await api.post('/assisted/register', object);
+const update = async (endpoint, object) => {
+  const { data } = await api.post(endpoint, object);
   return data;
 };
 
 export { 
-  getAllAssisted, 
-  registerAssisted, 
-  registerProduct, 
-  registerAssistedComentary 
+  getAll, 
+  register,
+  update,
 };
