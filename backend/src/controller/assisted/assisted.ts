@@ -23,6 +23,7 @@ export default class AssistedController {
 				gender,
 				legsNumber,
 				shirtNumber,
+				sleepOver,
 				shoesNumber
 			} = req.body;
 
@@ -38,11 +39,12 @@ export default class AssistedController {
 				gender,
 				legsNumber,
 				shirtNumber,
+				sleepOver,
 				shoesNumber
 			});
 
 			if (assistedResponse) {
-				return res.status(StatusCodes.OK).json(assistedResponse);
+				return res.status(StatusCodes.CREATED).json(assistedResponse);
 			}
 
 		} catch (e) {
@@ -79,6 +81,7 @@ export default class AssistedController {
 				gender,
 				legsNumber,
 				shirtNumber,
+				sleepOver,
 				shoesNumber
 			} = req.body;
 
@@ -95,6 +98,7 @@ export default class AssistedController {
 				gender,
 				legsNumber,
 				shirtNumber,
+				sleepOver,
 				shoesNumber
 			});
 

@@ -12,9 +12,9 @@ export default class ComentaryController {
 
 	public create = async (req: Request, res: Response, next: NextFunction) => {
 		try {
-			const { assistedId, comentary } = req.body;
+			const { assistedId, comentary, prayer } = req.body;
 
-			const assistedResponse = await this.ComentaryService.create({ assistedId, comentary });
+			const assistedResponse = await this.ComentaryService.create({ assistedId, comentary, prayer });
 
 			if (assistedResponse) {
 				return res.status(StatusCodes.OK).json(assistedResponse);
@@ -46,9 +46,9 @@ export default class ComentaryController {
 	public update = async (req: Request, res: Response, next: NextFunction) => {
 		try {
 
-			const { id, assistedId, comentary } = req.body;
+			const { id, assistedId, comentary, prayer } = req.body;
 
-			const assistedResponse = await this.ComentaryService.update({ id, assistedId, comentary });
+			const assistedResponse = await this.ComentaryService.update({ id, assistedId, comentary, prayer });
 
 			if (assistedResponse) {
 				return res.status(StatusCodes.OK).json(assistedResponse);
