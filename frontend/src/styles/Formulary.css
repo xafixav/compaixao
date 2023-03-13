@@ -1,4 +1,3 @@
-/* Form container */
 .form-container {
   display: flex;
   flex-direction: column;
@@ -11,14 +10,12 @@
   margin: 0 auto;
 }
 
-/* Form title */
 .form-title {
   font-size: 24px;
   margin-bottom: 20px;
   color: #333;
 }
 
-/* Form row */
 .form-row {
   display: flex;
   flex-direction: row;
@@ -28,7 +25,6 @@
   margin-bottom: 10px;
 }
 
-/* Form label */
 .form-label {
   display: flex;
   flex-direction: column;
@@ -38,7 +34,6 @@
   color: #333;
 }
 
-/* Form input */
 .form-input {
   padding: 10px;
   border-radius: 4px;
@@ -47,7 +42,6 @@
   width: 200px;
 }
 
-/* Form dropdown */
 .form-select {
   padding: 10px;
   border-radius: 4px;
@@ -56,7 +50,7 @@
   width: 200px;
 }
 
-/* Form button */
+
 .form-button {
   background-color: #333;
   color: #fff;
@@ -72,3 +66,4 @@
 .form-button:hover {
   background-color: #555;
 }
+
