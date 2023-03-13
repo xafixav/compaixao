@@ -28,6 +28,8 @@ class Assisted extends Model {
 
 	public legsNumber!: number;
 
+	public sleepOver!: boolean;
+
 	public shirtNumber!: number;
 
 	public createdAt!: number;
@@ -79,7 +81,7 @@ Assisted.init({
 		allowNull: true,
 		unique: false,
 	},
-	shoesSize: {
+	shoesNumber: {
 		type: DataTypes.NUMBER,
 		allowNull: true,
 		unique: false,
@@ -96,6 +98,11 @@ Assisted.init({
 	},
 	cpf: {
 		type: DataTypes.STRING,
+		allowNull: true,
+		unique: false,
+	},
+	sleepOver: {
+		type: DataTypes.BOOLEAN,
 		allowNull: true,
 		unique: false,
 	},

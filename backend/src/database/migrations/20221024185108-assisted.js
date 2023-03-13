@@ -67,6 +67,11 @@ module.exports = {
 				allowNull: true,
 				unique: false,
 			},
+			sleepOver: {
+				type: Sequelize.BOOLEAN,
+				allowNull: true,
+				unique: false,
+			},
 			livingState: {
 				type: Sequelize.STRING,
 				allowNull: false,

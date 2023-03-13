@@ -24,7 +24,12 @@ module.exports = {
 			},
 			comentary: {
 				type: Sequelize.STRING,
-				allowNull: false,
+				allowNull: true,
+				unique: false,
+			},
+			prayer: {
+				type: Sequelize.STRING,
+				allowNull: true,
 				unique: false,
 			},
 			createdAt: {

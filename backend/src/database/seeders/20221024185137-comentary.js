@@ -10,12 +10,14 @@ module.exports = {
 			{
 				assistedId: 1,
 				comentary: 'Esta sem Tenis - Roupa de Frio',
+				prayer: 'Pedir para melhorar a Saude',
 				createdAt: new Date(),
 				updatedAt: new Date(),
 			},
 			{
 				assistedId: 2,
 				comentary: 'Chinelo / Meia / Cueca',
+				prayer: 'Pedir para melhorar a Saude',
 				createdAt: new Date(),
 				updatedAt: new Date(),
 			},

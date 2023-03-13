@@ -8,6 +8,8 @@ class Comentary extends Model {
 	public assistedId!: number;
 
 	public comentary!: string;
+	
+	public prayer!: string;
 
 	public createdAt!: number;
 
@@ -34,7 +36,12 @@ Comentary.init({
 	},
 	comentary: {
 		type: DataTypes.STRING,
-		allowNull: false,
+		allowNull: true,
+		unique: false,
+	},
+	prayer: {
+		type: DataTypes.STRING,
+		allowNull: true,
 		unique: false,
 	},
 }, {
