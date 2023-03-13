@@ -1,11 +1,8 @@
-import Assisted from "./Assisted";
-import Validations from './Validations';
+import Assisted from './Assisted';
 
 const AssistedService = new Assisted();
 
-const ValidationsService = new Validations();
 
 export {
-    AssistedService,
-    ValidationsService
-}
+	AssistedService,
+};

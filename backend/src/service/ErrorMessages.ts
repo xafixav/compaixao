@@ -1,9 +1,31 @@
 const ERROR_MESSAGES = {
-    CPF_AND_RG_MISSING: 'CPF e RG nao informados',
-    ASSISTED_ID_MISSING: 'Numero de pulseira não informada',
-    ASSISTED_NAME_MISSING: 'Nome do assistenciado não informada',
-    ASSISTED_LIVING_STATE_MISSING: 'Moradia do assistenciado não informado',
-    ASSISTED_REGISTER_FAILURE: 'Falha ao registrar o assistenciado',
-}
+	CPF_AND_RG_MISSING: 'CPF e RG nao informados',
+	CPF_MUST_BE_11_DIGITS: 'CPF deve ter 11 digitos',
+	ASSISTED_ID_MISSING: 'Numero de pulseira não informada',
+	ASSISTED_NAME_MISSING: 'Nome do assistenciado não informada',
+	ASSISTED_LIVING_STATE_MISSING: 'Moradia do assistenciado não informado',
+	ASSISTED_REGISTER_FAILURE: 'Falha ao registrar o assistenciado',
+	ASSISTED_UPDATE_FAILURE: 'Falha ao atualizar o assistenciado',
+	ASSISTED_BORN_AGE_MISSING: 'Data de nascimento do assistenciado não informado',
+	ASSISTED_BORN_CITY_MISSING: 'Cidade de nascimento do assistenciado não informado',
+	ASSISTED_BORN_STATE_MISSING: 'Estado de nascimento do assistenciado não informado',
+	ASSISTED_GENDER_MISSING: 'Genero do assistenciado não informada ou mal formado',
+	ASSISTED_LEGS_NUMBER_MISSING: 'Tamanho da calça do assistenciado não informado ou mal formado',
+	ASSISTED_SHOES_NUMBER_MISSING: 'Tamanho do Tenis do assistenciado não informado ou mal formado',
+	ASSISTED_SHIRT_NUMBER_MISSING: 'Tamanho da Camiseta do assistenciado não informado ou mal formado',
+	PRODUCT_SIZE_NOT_INFORMED: 'Tamanho do produto não informado.',
+	PRODUCT_QUANTITY_NOT_INFORMED: 'Quantidade do produto não informado.',
+	PRODUCT_TYPE_NOT_INFORMED: 'Tipo do produto não informado.',
+	PRODUCT_GENDER_NOT_INFORMED: 'Genero do produto não informado.',
+	COMENTARY_SIZE_TOO_LARGE: 'Comentario nao pode passar de 254 caracteres.',
+	COMENTARY_CREATION_FAILURE: 'Falha ao criar o comentario.',
+	COMENTARY_UPDATE_FAILURE: 'Falha ao atualizar o comentario.',
+	COMENTARY_NOT_INFORMED: 'O campo Comentario nao pode estar vazio.',
+	COMENTARY_ASSISTED_ID_NOT_INFORMED: 'Id do Assistenciado não informado.',
+	INVENTORY_UPDATE_FAILURE: 'Falha ao atualizar item do inventario.',
+	INVENTORY_CREATION_FAILURE: 'Falha ao criar item no inventario.',
+	SLEEP_OVER_MUST_BE_A_BOOLEAN: 'SleepOver tem que ser um booleano.',
+	NOT_FOUND: 'Nada encontrado no banco.'
+};
 
 export default ERROR_MESSAGES;

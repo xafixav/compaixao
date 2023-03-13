@@ -1,4 +1,4 @@
-.personCard {
+ .personCard {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,4 +26,8 @@
 
 .headerLinks {
   font-size: large;
+}
+
+ html {
+  background-color: #333;
 }

@@ -5,53 +5,57 @@ import Inventory from './Inventory';
 
 class RelationalInventory extends Model {
 
-  public id!: number;
+	public id!: number;
   
-  public userId!: string;
+	public assistedId!: string;
 
-  public inventoryId!: string;
+	public inventoryId!: string;
 
-  public quantity!: number;
+	public quantity!: number;
 
+	public createdAt!: number;
+
+	public updatedAt!: number;
+  
 }
 
 RelationalInventory.init({
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    unique: true,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  assistedId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    unique: false,
-    references: {
-      model: 'assisted',
-      key: 'id'
-    }
-  },
-  inventoryId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    unique: false,
-    references: {
-      model: 'inventory',
-      key: 'id'
-    }
-  },
-  quantity: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    unique: false,
-  },
+	id: {
+		type: DataTypes.INTEGER,
+		allowNull: false,
+		unique: true,
+		primaryKey: true,
+		autoIncrement: true,
+	},
+	assistedId: {
+		type: DataTypes.INTEGER,
+		allowNull: false,
+		unique: false,
+		references: {
+			model: 'assisted',
+			key: 'id'
+		}
+	},
+	inventoryId: {
+		type: DataTypes.INTEGER,
+		allowNull: false,
+		unique: false,
+		references: {
+			model: 'inventory',
+			key: 'id'
+		}
+	},
+	quantity: {
+		type: DataTypes.INTEGER,
+		allowNull: false,
+		unique: false,
+	},
 }, {
-  // ... Outras configs
-  underscored: false,
-  sequelize: db,
-  tableName: 'relationalInventory',
-  timestamps: true,
+	// ... Outras configs
+	underscored: false,
+	sequelize: db,
+	tableName: 'relationalInventory',
+	timestamps: true,
 });
 
 /**
@@ -66,7 +70,7 @@ RelationalInventory.init({
 // Example.hasMany(OtherModel, { foreignKey: 'campoD', as: 'campoEstrangeiroD' });
 
 RelationalInventory.hasMany(Inventory, { foreignKey: 'id', as: 'product', onDelete: 'CASCADE' });
-RelationalInventory.hasMany(Assisted, { foreignKey: 'id', as: 'product', onDelete: 'CASCADE' });
+RelationalInventory.hasMany(Assisted, { foreignKey: 'id', as: 'assisted', onDelete: 'CASCADE' });
 
 
 export default RelationalInventory;
