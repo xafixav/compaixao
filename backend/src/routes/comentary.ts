@@ -10,7 +10,6 @@ const comentaryRouter = express.Router();
 comentaryRouter
 	.route('/assisted/comentary/register')
 	.post(
-		createIsValid,
 		create,
 	);
 
@@ -23,7 +22,6 @@ comentaryRouter
 comentaryRouter
 	.route('/assisted/comentary/update')
 	.post(
-		updateIsValid,
 		update,
 	);
 

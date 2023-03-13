@@ -10,7 +10,6 @@ const assistedRouter = express.Router();
 assistedRouter
 	.route('/assisted/register')
 	.post(
-		createIsValid,
 		register,
 	);
 
@@ -23,7 +22,6 @@ assistedRouter
 assistedRouter
 	.route('/assisted/update')
 	.get(
-		updateIsValid,
 		update,
 	);
 
