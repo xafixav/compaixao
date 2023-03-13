@@ -1,36 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { register } from '../services/requests';
-import useTodayAssisteds from '../hooks/useTodayAssisteds';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/AssistedForms.css';
+import { useParams, useNavigate } from 'react-router-dom';
+import { AssistedContext } from '../services/AssistedContext';
 
-// create a react forms with these fields and states:
-// assistedNumber: number,
-// name: string,
-// bornAge: string,
-// bornCity: string,
-// bornState: string,
-// jobProfession: string,
-// cpf: string,
-// livingState: string,
-// gender: string,
-// shoesNumber: number,
-// legsNumber: number,
-// shirtNumber: number,
-// sleepOver: boolean,
+// create states for these fields
+// {
+//   "id": 1,
+//   "name": "Kleber Camargo",
+//   "assistedNumber": 2,
+//   "bornAge": "14/03/1987",
+//   "bornCity": "Limeira",
+//   "bornState": "Sao Paulo",
+//   "jobProfession": "",
+//   "gender": "Masculino",
+//   "shoesNumber": 35,
+//   "legsNumber": 35,
+//   "shirtNumber": 35,
+//   "cpf": "13215818978",
+//   "sleepOver": true,
+//   "livingState": "Rua",
+//   "createdAt": "2023-03-13T02:23:23.259Z",
+//   "updatedAt": "2023-03-13T02:23:23.259Z",
+//   "comentaries": [
+//       {
+//           "id": 1,
+//           "assistedId": 1,
+//           "comentary": "Esta sem Tenis - Roupa de Frio",
+//           "prayer": "Pedir para melhorar a Saude",
+//           "createdAt": "2023-03-13T02:23:23.274Z",
+//           "updatedAt": "2023-03-13T02:23:23.274Z"
+//       }
+//   ]
+// },
 
-
-// REUTILIZAR ESSE FORMS, SUGESTOES: ADICIONAR UM OBJETO (ASSISTED COMO PROPS), 
-// E PASSAR ESSE OBJETO PARA O FORMS, ELE VAI PREENCHER OS CAMPOS AUTOMATICAMENTE, 
-// E DEPOIS DE PREENCHER, O USUARIO PODE ALTERAR OS CAMPOS, 
-// E DEPOIS DE ALTERAR, O USUARIO PODE SALVAR AS ALTERAÇÕES, OU CANCELAR AS ALTERAÇÕES, 
-// E O FORMS VAI RETORNAR O OBJETO ASSISTED COM AS ALTERAÇÕES, OU COM OS CAMPOS VAZIOS, DEPENDENDO DO QUE O USUARIO ESCOLHEU.
-// RAZAO: ESSE FORMS VAI SER REUTILIZADO PARA EDITAR OS ASSISTENCIADOS, E PARA CADASTRAR OS ASSISTENCIADOS.
-
-function AssistedForms() {
+function AssistedUpdate() {
   { /* create a state for each field */ }
-  const [update, assisteds, setAssisteds, setUpdate] = useTodayAssisteds();
+  const context = useContext(AssistedContext);
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [assistedNumber, setAssistedNumber] = useState('');
   const [name, setName] = useState('');
   const [bornAge, setBornAge] = useState('');
@@ -39,16 +49,17 @@ function AssistedForms() {
   const [jobProfession, setJobProfession] = useState('');
   const [cpf, setCpf] = useState('');
   const [livingState, setLivingState] = useState('');
-  const [gender, setGender] = useState('Masculino');
+  const [gender, setGender] = useState('');
   const [shoesNumber, setShoesNumber] = useState('');
   const [legsNumber, setLegsNumber] = useState('');
   const [shirtNumber, setShirtNumber] = useState('');
-  const [sleepOver, setSleepOver] = useState(false);
+  const [sleepOver, setSleepOver] = useState('');
   const [isSleepOverAtLimit, setIsSleepOverAtLimit] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [prayer, setPrayer] = useState("");
-  const [comentary, setComentary] = useState("");
+  const [prayer, setPrayer] = useState('');
+  const [comentary, setComentary] = useState('');
   const [BtnDisabled, setBtnDisabled] = useState(true);
+  const [assistedComentaries, setAssistedComentaries] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,6 +67,7 @@ function AssistedForms() {
     try {
       { /* create a object with all states */ }
       const assisted = {
+        id,
         assistedNumber,
         name,
         bornAge,
@@ -71,56 +83,78 @@ function AssistedForms() {
         sleepOver,
       };
 
+      console.log(id);
 
-      const response = await register('/assisted/register', assisted);  
+      await register('/assisted/update', assisted);
+
 
       const textAreas = {
-        assistedId: response.id ? response.id : response.data.id,
+        assistedId: +id,
         prayer,
         comentary,
       };
 
 
-      await register('/assisted/comentary/register', textAreas)
+      await register(`/assisted/comentary/update`, textAreas);
 
-      alert('Assistenciado cadastrado com sucesso');
+      alert('Assistenciado atualizado com sucesso');
 
-  
-      setAssistedNumber('');
-      setName('');
-      setBornAge('');
-      setBornCity('');
-      setBornState('');
-      setJobProfession('');
-      setCpf('');
-      setLivingState('');
-      setGender('');
-      setShoesNumber('');
-      setLegsNumber('');
-      setShirtNumber('');
+      navigate.push('/assisted');
+      // setAssistedNumber('');
+      // setName('');
+      // setBornAge('');
+      // setBornCity('');
+      // setBornState('');
+      // setJobProfession('');
+      // setCpf('');
+      // setLivingState('');
+      // setGender('');
+      // setShoesNumber('');
+      // setLegsNumber('');
+      // setShirtNumber('');
       setSleepOver(false);
       setSubmitted(!submitted);
-      setAssisteds();
       return null;
     } catch (error) {
-      return alert('Erro ao cadastrar assistenciado: ' + error.request.response);
+      return alert('Erro ao cadastrar assistenciado: ' + error || error.message);
     }
   };
 
   useEffect(() => {
-    setAssisteds();
-  }, []);
+    fullfillForm();
+  }, [context.assistedsToday]);
+
+  const fullfillForm = () => {
+    const assisted = context.assisteds.find((assisted) => assisted.id === Number(id));
+    if (!assisted) return null;
+    setAssistedNumber(assisted.assistedNumber);
+    setName(assisted.name);
+    setBornAge(assisted.bornAge);
+    setBornCity(assisted.bornCity);
+    setBornState(assisted.bornState);
+    setJobProfession(assisted.jobProfession);
+    setGender(assisted.gender);
+    setCpf(assisted.cpf);
+    setLivingState(assisted.livingState);
+    setShoesNumber(assisted.shoesNumber);
+    setLegsNumber(assisted.legsNumber);
+    setShirtNumber(assisted.shirtNumber);
+    setSleepOver(assisted.sleepOver);
+    setShirtNumber(assisted.shirtNumber);
+    setSleepOver(assisted.sleepOver);
+    setPrayer(assisted.comentaries[0].prayer);
+    setComentary(assisted.comentaries[0].comentary);
+  }
 
   useEffect(() => {
     handleSleepOver();
-  }, [submitted, assisteds]);
+  }, [submitted, context.assisteds]);
 
   useEffect(() => {
     handleButtonStatus();
   }, [assistedNumber, name, bornAge, bornAge, bornCity, bornState, cpf, livingState, gender, shoesNumber, legsNumber, shirtNumber]);
   
   const handleButtonStatus = () => {
-    const filterSleepOver = assisteds.filter((assisted) => assisted.sleepOver);
     const allFields = [assistedNumber, name, bornAge, bornAge, bornCity, bornState, cpf, livingState, gender, shoesNumber, legsNumber, shirtNumber];
     const isAllFieldsFilled = allFields.every((field) => field !== '');
     if (isAllFieldsFilled) {
@@ -132,9 +166,9 @@ function AssistedForms() {
   }
 
   const handleSleepOver = () => {
-    const filterSleepOver = assisteds.filter((assisted) => assisted.sleepOver);
-    console.log(filterSleepOver);
-    if (filterSleepOver.length >= 20) {
+    if (context?.asssteds?.length === 0) return null;
+    const filterSleepOver = context.assisteds.filter((assisted) => assisted.sleepOver);
+    if (filterSleepOver.length >= 5) {
       setIsSleepOverAtLimit(true);
     }
   }
@@ -309,4 +343,4 @@ function AssistedForms() {
   );
 }
 
-export default AssistedForms;
+export default AssistedUpdate;
