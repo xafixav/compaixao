@@ -10,7 +10,7 @@
     "test:coverage:json": "nyc --reporter=json-summary npm run test",
     "dev": "nodemon src/server.ts",
     "db:reset:start": "npm run db:reset && nodemon src/server.ts",
-    "build": "/bin/sh tsc_eval.sh",
+    "build": "npx tsc && npm start",
     "build-windows": "npx tsc && npm run db:reset:start",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "prestart": "npm run build && npm run db:reset"
