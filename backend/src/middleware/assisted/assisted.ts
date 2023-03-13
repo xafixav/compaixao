@@ -47,8 +47,9 @@ export default class AssistedMiddleware {
 			}, { convert: false });
 			
 			if (error) {
+				console.log(error);
 				const [StatusCode, ErrorMessage] = error.details[0].message.split('|');
-				return res.status(Number(StatusCode)).json({ message: ErrorMessage });
+				return res.status(StatusCodes.BAD_REQUEST).json({ message: ErrorMessage || error.details[0].message });
 			}
   
 			next();
@@ -94,7 +95,7 @@ export default class AssistedMiddleware {
 			
 			if (error) {
 				const [StatusCode, ErrorMessage] = error.details[0].message.split('|');
-				return res.status(Number(StatusCode)).json({ message: ErrorMessage });
+				return res.status(StatusCodes.BAD_REQUEST).json({ message: ErrorMessage || error.details[0].message });
 			}
   
 			next();
