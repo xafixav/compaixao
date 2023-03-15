@@ -10,26 +10,28 @@
     "test:coverage:json": "nyc --reporter=json-summary npm run test",
     "dev": "nodemon src/server.ts",
     "db:reset:start": "npm run db:reset && nodemon src/server.ts",
-    "build": "npx tsc",
+    "build": "tsup ./src/server.ts",
     "build-windows": "npx tsc && npm run db:reset:start",
-    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "prestart": "npm run build"
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+  },
+  "engine": {
+    "node": ">=16.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xafixav/manage-sell-app.git"
+    "url": "git+https://github.com/xafixav/compaixao.git"
   },
   "keywords": [
-    "manage",
-    "sell",
+    "compaixao",
+    "aquece",
     "app"
   ],
-  "author": "xafixav and OctavioLopes",
+  "author": "xafixav",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xafixav/manage-sell-app/issues"
+    "url": "https://github.com/xafixav/compaixao/issues"
   },
-  "homepage": "https://github.com/xafixav/manage-sell-app#readme",
+  "homepage": "https://github.com/xafixav/compaixao#readme",
   "dependencies": {
     "@istanbuljs/nyc-config-typescript": "1.0.2",
     "@types/axios": "^0.14.0",
@@ -62,7 +64,8 @@
     "sequelize": "^6.25.3",
     "sequelize-cli": "^6.5.1",
     "sinon": "13.0.1",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "tsup": "^6.6.3"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
