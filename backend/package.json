@@ -2,7 +2,7 @@
   "name": "compaixao-aquece-backend-nodejs",
   "version": "1.0.0",
   "description": "database backend",
-  "main": "./dist/server",
+  "main": "./public/server",
   "scripts": {
     "start": "node .",
     "test": "mocha -r ts-node/register ./src/tests/*$NAME*.{test,spec}.ts -t 10000 --exit",
@@ -10,7 +10,7 @@
     "test:coverage:json": "nyc --reporter=json-summary npm run test",
     "dev": "nodemon src/server.ts",
     "db:reset:start": "npm run db:reset && nodemon src/server.ts",
-    "build": "npx tsc && tsup ./src/server.ts",
+    "build": "npx tsc",
     "build-windows": "npx tsc && npm run db:reset:start",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
@@ -64,8 +64,7 @@
     "sequelize": "^6.25.3",
     "sequelize-cli": "^6.5.1",
     "sinon": "13.0.1",
-    "ts-node": "^10.9.1",
-    "tsup": "^6.6.3"
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
