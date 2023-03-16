@@ -325,7 +325,7 @@ function AssistedUpdate() {
         <h6>Limite de assitenciados diario no alojamento atingido</h6>
         <br/>
         </div>) 
-      : <Form.Group>
+      : <Form.Group className='form-checkbox'>
         <Form.Label htmlFor="sleepOver">Deseja passar a noite</Form.Label>
         <Form.Check
           id="sleepOver"
