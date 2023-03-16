@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = process.env.REACT_APP_LOCALHOST || 'http://localhost:3001';
+const url = process.env.REACT_APP_LOCALHOST || 'https://compaixao-backend.onrender.com/';
 
 console.log(url);
 
