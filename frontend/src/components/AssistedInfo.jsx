@@ -206,8 +206,8 @@ function AssistedInfo() {
 
   return (
     <div className="card-page">
-      <input type="text" placeholder="Pesquisar" onChange={(e) => setFilter(e.target.value)} />
-      {loading ? <ReactLoading type={'balls'} color={'black'} height={'20%'} width={'20%'} />
+      <input type="text" className="card-search" placeholder="Pesquisar" onChange={(e) => setFilter(e.target.value)} />
+      {loading ? <ReactLoading type={'spin'} color={'black'} height={'7rem'} width={'7rem'} />
       : 
       generateCardList() || 'Nenhuma pessoa encontrada no banco de dados.'}
     </div>

@@ -1,8 +1,60 @@
 /* compose a css for mobile */
 
 .container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: stretch;
+}
+
+.form-checkbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: stretch;
+}
+
+.form-checkbox input {
+  margin-left: 1rem;
+}
+
+/* .container input {
   width: 100%;
-  max-width: 576px; /* Mobile-first breakpoint */
   margin: 0 auto;
   padding: 0;
+} */
+
+@media screen and (max-width: 576px) {
+  .container {
+    width: 100%;
+    max-width: 576px; /* Mobile-first breakpoint */
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  .container div {
+    max-width: 576px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  /* create a style for 345px */
+
 }
+
+@media screen and (max-width: 345px) {
+  .container {
+    width: 100%;
+    max-width: 345px; /* Mobile-first breakpoint */
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  .container div {
+    max-width: 345px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+
+

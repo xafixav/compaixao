@@ -29,11 +29,12 @@ function App() {
       updateToday, assistedsToday, fetchAssistedToday, setUpdateToday
       }}>
     <Router>
-      {Header()}
       <Routes>
-        <Route exact path="/" element={<AssistedForms />} />
-        <Route exact path="/assisted" element={<AssistedInfo />} />
-        <Route exact path="/assisted/:id" element={<AssistedUpdate />} />
+        <Route element={<Header />}>
+          <Route exact path="/" element={<AssistedForms />} />
+          <Route exact path="/assisted" element={<AssistedInfo />} />
+          <Route exact path="/assisted/:id" element={<AssistedUpdate />} />
+        </Route>
       </Routes>
     </Router>
     </AssistedContext.Provider>
