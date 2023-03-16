@@ -140,7 +140,7 @@ function AssistedForms() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className="container">
       <Form.Group>
         <Form.Label htmlFor="assistedNumber">Numero da pulseira</Form.Label>
         <Form.Control
@@ -290,8 +290,8 @@ function AssistedForms() {
       (<div>
         <h6>Limite de assitenciados diario no alojamento atingido</h6>
         <br/>
-        </div>) 
-      : <Form.Group>
+        </div>)
+      : <Form.Group className='form-checkbox'>
         <Form.Label htmlFor="sleepOver">Deseja passar a noite</Form.Label>
         <Form.Check
           id="sleepOver"
