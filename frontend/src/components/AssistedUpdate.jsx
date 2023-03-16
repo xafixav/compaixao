@@ -174,7 +174,7 @@ function AssistedUpdate() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className="container">
       <Form.Group>
         <Form.Label htmlFor="assistedNumber">Numero da pulseira</Form.Label>
         <Form.Control
