@@ -5,29 +5,6 @@ import useTodayAssisteds from '../hooks/useTodayAssisteds';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/AssistedForms.css';
 
-// create a react forms with these fields and states:
-// assistedNumber: number,
-// name: string,
-// bornAge: string,
-// bornCity: string,
-// bornState: string,
-// jobProfession: string,
-// cpf: string,
-// livingState: string,
-// gender: string,
-// shoesNumber: number,
-// legsNumber: number,
-// shirtNumber: number,
-// sleepOver: boolean,
-
-
-// REUTILIZAR ESSE FORMS, SUGESTOES: ADICIONAR UM OBJETO (ASSISTED COMO PROPS), 
-// E PASSAR ESSE OBJETO PARA O FORMS, ELE VAI PREENCHER OS CAMPOS AUTOMATICAMENTE, 
-// E DEPOIS DE PREENCHER, O USUARIO PODE ALTERAR OS CAMPOS, 
-// E DEPOIS DE ALTERAR, O USUARIO PODE SALVAR AS ALTERAÇÕES, OU CANCELAR AS ALTERAÇÕES, 
-// E O FORMS VAI RETORNAR O OBJETO ASSISTED COM AS ALTERAÇÕES, OU COM OS CAMPOS VAZIOS, DEPENDENDO DO QUE O USUARIO ESCOLHEU.
-// RAZAO: ESSE FORMS VAI SER REUTILIZADO PARA EDITAR OS ASSISTENCIADOS, E PARA CADASTRAR OS ASSISTENCIADOS.
-
 function AssistedForms() {
   { /* create a state for each field */ }
   const [update, assisteds, setAssisteds, setUpdate] = useTodayAssisteds();
@@ -202,11 +179,11 @@ function AssistedForms() {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label htmlFor="cpf">CPF</Form.Label>
+        <Form.Label htmlFor="cpf">CPF (Somente Numeros)</Form.Label>
         <Form.Control
           id="cpf"
           type="text"
-          placeholder="Insira CPF"
+          placeholder="Insira CPF (SOMENTE NUMEROS)"
           value={cpf}
           onChange={(e) => setCpf(e.target.value)}
         />
@@ -257,11 +234,11 @@ function AssistedForms() {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label htmlFor="shirtNumber">Numero da Camisa</Form.Label>
+        <Form.Label htmlFor="shirtNumber">Tamanho da Camisa</Form.Label>
         <Form.Control
           id="shirtNumber"
-          type="number"
-          placeholder="Insira Numero da Camisa"
+          type="text"
+          placeholder="Insira Tamanho da Camisa"
           value={shirtNumber}
           onChange={(e) => setShirtNumber(e.target.value)}
         />

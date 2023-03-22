@@ -30,7 +30,7 @@ class Assisted extends Model {
 
 	public sleepOver!: boolean;
 
-	public shirtNumber!: number;
+	public shirtNumber!: string;
 
 	public createdAt!: number;
 
@@ -92,7 +92,7 @@ Assisted.init({
 		unique: false,
 	},
 	shirtNumber: {
-		type: DataTypes.NUMBER,
+		type: DataTypes.STRING,
 		allowNull: true,
 		unique: false,
 	},
