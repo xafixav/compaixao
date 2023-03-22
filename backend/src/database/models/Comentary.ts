@@ -1,6 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '.';
-import Assisted from './Assisted';
 
 class Comentary extends Model {
 

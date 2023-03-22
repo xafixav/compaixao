@@ -59,7 +59,6 @@ function AssistedUpdate() {
   const [prayer, setPrayer] = useState('');
   const [comentary, setComentary] = useState('');
   const [BtnDisabled, setBtnDisabled] = useState(true);
-  const [assistedComentaries, setAssistedComentaries] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -166,9 +165,9 @@ function AssistedUpdate() {
   }
 
   const handleSleepOver = () => {
-    if (context?.asssteds?.length === 0) return null;
+    if (context?.assisteds?.length === 0) return null;
     const filterSleepOver = context.assisteds.filter((assisted) => assisted.sleepOver);
-    if (filterSleepOver.length >= 5) {
+    if (filterSleepOver.length >= 20) {
       setIsSleepOverAtLimit(true);
     }
   }
@@ -236,11 +235,11 @@ function AssistedUpdate() {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label htmlFor="cpf">CPF</Form.Label>
+        <Form.Label htmlFor="cpf">CPF (Somente Numeros)</Form.Label>
         <Form.Control
           id="cpf"
           type="text"
-          placeholder="Insira CPF"
+          placeholder="Insira CPF (Somente Numeros)"
           value={cpf}
           onChange={(e) => setCpf(e.target.value)}
         />
@@ -291,11 +290,11 @@ function AssistedUpdate() {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label htmlFor="shirtNumber">Numero da Camisa</Form.Label>
+        <Form.Label htmlFor="shirtNumber">Tamanho da Camisa</Form.Label>
         <Form.Control
           id="shirtNumber"
-          type="number"
-          placeholder="Insira Numero da Camisa"
+          type="text"
+          placeholder="Insira Tamanho da Camisa"
           value={shirtNumber}
           onChange={(e) => setShirtNumber(e.target.value)}
         />

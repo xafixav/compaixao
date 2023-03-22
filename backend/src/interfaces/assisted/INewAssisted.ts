@@ -10,7 +10,7 @@ interface INewAssisted {
     gender: string,
 	shoesNumber: number,
 	legsNumber: number,
-	shirtNumber: number,
+	shirtNumber: string,
 	sleepOver: boolean,
 }
 

@@ -58,7 +58,7 @@ module.exports = {
 				unique: false,
 			},
 			shirtNumber: {
-				type: Sequelize.INTEGER,
+				type: Sequelize.STRING,
 				allowNull: true,
 				unique: false,
 			},
