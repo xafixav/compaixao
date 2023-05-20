@@ -1,30 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { register } from '../services/requests';
 import useTodayAssisteds from '../hooks/useTodayAssisteds';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/AssistedForms.css';
+import { AssistedContext } from '../services/AssistedContext';
 
 function AssistedForms() {
   { /* create a state for each field */ }
-  const [update, assisteds, setAssisteds, setUpdate] = useTodayAssisteds();
-  const [assistedNumber, setAssistedNumber] = useState('');
-  const [name, setName] = useState('');
-  const [bornAge, setBornAge] = useState('');
-  const [bornCity, setBornCity] = useState('');
-  const [bornState, setBornState] = useState('');
-  const [jobProfession, setJobProfession] = useState('');
-  const [cpf, setCpf] = useState('');
-  const [livingState, setLivingState] = useState('');
+  const context = useContext(AssistedContext);
+  const { assisteds, createAssisted } = context;
+  const [assistedNumber, setAssistedNumber] = useState('teste');
+  const [name, setName] = useState('teste');
+  const [bornAge, setBornAge] = useState('teste');
+  const [bornCity, setBornCity] = useState('teste');
+  const [bornState, setBornState] = useState('teste');
+  const [jobProfession, setJobProfession] = useState('teste');
+  const [cpf, setCpf] = useState('teste');
+  const [livingState, setLivingState] = useState('teste');
   const [gender, setGender] = useState('Masculino');
-  const [shoesNumber, setShoesNumber] = useState('');
-  const [legsNumber, setLegsNumber] = useState('');
-  const [shirtNumber, setShirtNumber] = useState('');
+  const [shoesNumber, setShoesNumber] = useState(35);
+  const [legsNumber, setLegsNumber] = useState(35);
+  const [shirtNumber, setShirtNumber] = useState(35);
   const [sleepOver, setSleepOver] = useState(false);
   const [isSleepOverAtLimit, setIsSleepOverAtLimit] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [prayer, setPrayer] = useState("");
-  const [comentary, setComentary] = useState("");
+  const [prayer, setPrayer] = useState("teste");
+  const [comentary, setComentary] = useState("teste");
   const [BtnDisabled, setBtnDisabled] = useState(true);
 
   const handleSubmit = async (e) => {
@@ -46,19 +48,12 @@ function AssistedForms() {
         legsNumber,
         shirtNumber,
         sleepOver,
-      };
-
-
-      const response = await register('/assisted/register', assisted);  
-
-      const textAreas = {
-        assistedId: response.id ? response.id : response.data.id,
         prayer,
         comentary,
       };
 
 
-      await register('/assisted/comentary/register', textAreas)
+      createAssisted(assisted);
 
       alert('Assistenciado cadastrado com sucesso');
 
@@ -77,16 +72,12 @@ function AssistedForms() {
       setShirtNumber('');
       setSleepOver(false);
       setSubmitted(!submitted);
-      setAssisteds();
       return null;
     } catch (error) {
-      return alert('Erro ao cadastrar assistenciado: ' + error.request.response);
+      console.error(error);
+      return alert('Erro ao cadastrar assistenciado');
     }
   };
-
-  useEffect(() => {
-    setAssisteds();
-  }, []);
 
   useEffect(() => {
     handleSleepOver();
@@ -97,7 +88,7 @@ function AssistedForms() {
   }, [assistedNumber, name, bornAge, bornAge, bornCity, bornState, cpf, livingState, gender, shoesNumber, legsNumber, shirtNumber]);
   
   const handleButtonStatus = () => {
-    const filterSleepOver = assisteds.filter((assisted) => assisted.sleepOver);
+    // const filterSleepOver = assisteds.filter((assisted) => assisted.sleepOver);
     const allFields = [assistedNumber, name, bornAge, bornAge, bornCity, bornState, cpf, livingState, gender, shoesNumber, legsNumber, shirtNumber];
     const isAllFieldsFilled = allFields.every((field) => field !== '');
     if (isAllFieldsFilled) {
