@@ -12,20 +12,17 @@ import AssistedForms from './components/AssistedForms';
 import AssistedUpdate from './components/AssistedUpdate';
 import Header from './components/Header';
 import { AssistedContext } from './services/AssistedContext';
-import useAllAssisted from './hooks/useFetchAllAssisted';
 import useTodayAssisteds from './hooks/useTodayAssisteds';
+import useAssistedsHooks from './hooks/useAssistedsHooks';
 
 function App() {
-  const [update, assisteds, fetchAssisted, setUpdate] = useAllAssisted()
-  const [updateToday, assistedsToday, fetchAssistedToday, setUpdateToday] = useTodayAssisteds()
+  const [assisteds, createAssisted, updateAssisted, getAssisted] = useAssistedsHooks();
+  const [updateToday, assistedsToday, fetchAssistedToday, setUpdateToday] = useTodayAssisteds(assisteds);
 
-  useEffect(() => {
-    fetchAssisted();
-  }, []);
 
   return (
     <AssistedContext.Provider value={{
-      update, assisteds, fetchAssisted, setUpdate,
+      assisteds, createAssisted, updateAssisted, getAssisted,
       updateToday, assistedsToday, fetchAssistedToday, setUpdateToday
       }}>
     <Router>
