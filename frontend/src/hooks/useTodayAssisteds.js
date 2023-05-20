@@ -1,21 +1,18 @@
 import { useState, useEffect } from 'react';
-import { getAll } from '../services/requests';
 
-function useTodayAssisteds() {
-  const [assisteds, setAssisteds] = useState([]);
+function useTodayAssisteds(assistedsLocalStorage) {
+  const [assisteds, setAssisteds] = useState(assistedsLocalStorage);
   const [update, setUpdate] = useState(true);
 
   useEffect(() => {
-    // se a data do banco de dados for igual a data de hoje, então mostre...
-    // caso a data do banco nao seja a mesma do dia, o codigo ira quebrar. nota para o futuro: arrumar isso?
-      getAll('/assisted/getall').then((data) => {
-      const todayAssisteds = data.filter((assisted) => {
-        const today = new Date();
-        const assistedDate = new Date(assisted.updatedAt);
-        return ( today.getDate() === assistedDate.getDate() && today.getMonth() === assistedDate.getMonth() && today.getFullYear() === assistedDate.getFullYear() );
-      });
-      setAssisteds(todayAssisteds);
+    // Filtra os assistenciados que foram atualizados hoje (esta busca é feita com base na data de atualização do assistenciado do localStorage)
+    // Este filtro existe para fazer a contagem de assistenciados que foram atendidos hoje.
+    const todayAssisteds = assisteds.filter((assisted) => {
+      const today = new Date();
+      const assistedDate = new Date(assisted.updatedAt);
+      return ( today.getDate() === assistedDate.getDate() && today.getMonth() === assistedDate.getMonth() && today.getFullYear() === assistedDate.getFullYear() );
     });
+    setAssisteds(todayAssisteds);
   }, [update]);
 
   function fetchAssisted() {
