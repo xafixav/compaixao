@@ -6,38 +6,7 @@ import '../styles/AssistedForms.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AssistedContext } from '../services/AssistedContext';
 
-// create states for these fields
-// {
-//   "id": 1,
-//   "name": "Kleber Camargo",
-//   "assistedNumber": 2,
-//   "bornAge": "14/03/1987",
-//   "bornCity": "Limeira",
-//   "bornState": "Sao Paulo",
-//   "jobProfession": "",
-//   "gender": "Masculino",
-//   "shoesNumber": 35,
-//   "legsNumber": 35,
-//   "shirtNumber": 35,
-//   "cpf": "13215818978",
-//   "sleepOver": true,
-//   "livingState": "Rua",
-//   "createdAt": "2023-03-13T02:23:23.259Z",
-//   "updatedAt": "2023-03-13T02:23:23.259Z",
-//   "comentaries": [
-//       {
-//           "id": 1,
-//           "assistedId": 1,
-//           "comentary": "Esta sem Tenis - Roupa de Frio",
-//           "prayer": "Pedir para melhorar a Saude",
-//           "createdAt": "2023-03-13T02:23:23.274Z",
-//           "updatedAt": "2023-03-13T02:23:23.274Z"
-//       }
-//   ]
-// },
-
 function AssistedUpdate() {
-  { /* create a state for each field */ }
   const context = useContext(AssistedContext);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -80,25 +49,16 @@ function AssistedUpdate() {
         legsNumber,
         shirtNumber,
         sleepOver,
-      };
-
-      console.log(id);
-
-      await register('/assisted/update', assisted);
-
-
-      const textAreas = {
-        assistedId: +id,
         prayer,
         comentary,
       };
 
+      context.updateAssisted(assisted);
 
-      await register(`/assisted/comentary/update`, textAreas);
 
       alert('Assistenciado atualizado com sucesso');
 
-      navigate.push('/assisted');
+      
       // setAssistedNumber('');
       // setName('');
       // setBornAge('');
@@ -113,7 +73,7 @@ function AssistedUpdate() {
       // setShirtNumber('');
       setSleepOver(false);
       setSubmitted(!submitted);
-      return null;
+      return navigate.push('/assisted');
     } catch (error) {
       return alert('Erro ao cadastrar assistenciado: ' + error || error.message);
     }
@@ -141,8 +101,8 @@ function AssistedUpdate() {
     setSleepOver(assisted.sleepOver);
     setShirtNumber(assisted.shirtNumber);
     setSleepOver(assisted.sleepOver);
-    setPrayer(assisted.comentaries[0].prayer);
-    setComentary(assisted.comentaries[0].comentary);
+    setPrayer(assisted.prayer);
+    setComentary(assisted.comentary);
   }
 
   useEffect(() => {
