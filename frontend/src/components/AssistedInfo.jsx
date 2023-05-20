@@ -82,7 +82,8 @@ function AssistedInfo() {
       sleepOver,
       createdAt,
       updatedAt,
-      comentaries,
+      comentary,
+      prayer,
     } = person
     const formatDate = (date) => {
       const dateString = new Date(date);
@@ -184,19 +185,19 @@ function AssistedInfo() {
 
   const generatePersonTextAreas = (comentary) => {
     if (typeof comentary === undefined) return null;
-    return comentary.map((info) => (
+    return (
       <div>
             Comentario:
             {' '}
-            {info.comentary}
+            {comentary}
             {' '}
             <br />
             Oração:
             {' '}
-            {info.prayer}
+            {prayer}
             {' '}
       </div>
-    ));
+    );
   }
 
   const generateCardList = () => {
