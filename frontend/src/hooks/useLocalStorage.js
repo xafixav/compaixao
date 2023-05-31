@@ -4,14 +4,18 @@ function useLocalStorage() {
   const [assistedsArr, setAssisteds] = useState([]);
 
   const saveAssisteds = () => {
-    localStorage.setItem('assistedInfo', JSON.stringify(assistedsArr));
+    if (assistedsArr.length !== 0) {
+      localStorage.setItem('assistedInfo', JSON.stringify(assistedsArr));
+    }
   }
 
   const getAssisteds = () => {
-    const storageAssisted = localStorage.getItem('assistedInfo');
+    const storageAssisted = JSON.parse(localStorage.getItem('assistedInfo'));
     if (Array.isArray(storageAssisted)) {
-      setAssisteds(JSON.parse(storageAssisted));
+      setAssisteds(storageAssisted);
+      return;
     }
+    return localStorage.setItem('assistedInfo', JSON.stringify([]));
   }
 
   useEffect(() => {

@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const url = process.env.REACT_APP_LOCALHOST || 'https://compaixao-backend.onrender.com/';
 
-console.log(url);
 
 const api = axios.create({
   baseURL: `${url}`,

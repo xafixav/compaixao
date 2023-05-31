@@ -19,6 +19,7 @@ function App() {
   const [assisteds, createAssisted, updateAssisted, getAssisted] = useAssistedsHooks();
   const [updateToday, assistedsToday, fetchAssistedToday, setUpdateToday] = useTodayAssisteds(assisteds);
 
+  // console.log(assisteds, 'eu nao deveria ser um undefined, deveria ser o array do localStorage parceadao');
 
   return (
     <AssistedContext.Provider value={{

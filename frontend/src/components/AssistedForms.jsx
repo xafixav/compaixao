@@ -101,7 +101,6 @@ function AssistedForms() {
 
   const handleSleepOver = () => {
     const filterSleepOver = assisteds.filter((assisted) => assisted.sleepOver);
-    console.log(filterSleepOver);
     if (filterSleepOver.length >= 20) {
       setIsSleepOverAtLimit(true);
     }

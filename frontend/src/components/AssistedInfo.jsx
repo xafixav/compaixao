@@ -1,14 +1,16 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 // import react-bootstrap button component
 import { Button } from 'react-bootstrap';
-import { getAll } from '../services/requests';
 import '../styles/PersonCard.css';
 import ReactLoading from 'react-loading';
+import { AssistedContext } from '../services/AssistedContext';
 
 
 function AssistedInfo() {
-  const [allAssisted, setAllAssisted] = useState([]);
+  const context = useContext(AssistedContext);
+  const { assisteds } = context;
+  const [allAssisted, setAllAssisted] = useState(assisteds);
   const [filter, setFilter] = useState('');
   const [filteredAssisted, setFilteredAssisted] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -25,7 +27,6 @@ function AssistedInfo() {
 
   const fetchAPI = async () => {
     try {
-      const assisteds = await getAll('/assisted/getall');
       setAllAssisted(assisteds);
       setFilteredAssisted(assisteds);
       setLoading(false);
@@ -35,6 +36,7 @@ function AssistedInfo() {
   };
 
   const filterAssisted = () => {
+    console.log(assisteds, 'eu deveria ser o assisteds', allAssisted, 'eu tambem deveria ser o assisteds');
     const filtered = allAssisted.filter((assisted) => {
       if (filter.toLowerCase() === 'hoje sim') {
         const today = new Date();
@@ -91,7 +93,6 @@ function AssistedInfo() {
       return dateString.toLocaleDateString('pt-BR', options);
     };
 
-    console.log(person);
 
     if (!person) {
       return null;
