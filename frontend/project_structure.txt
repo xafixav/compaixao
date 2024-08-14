@@ -1,0 +1,44 @@
+.
+|____.dockerignore
+|____.gitignore
+|____Dockerfile
+|____get_files_structure.sh
+|____package-lock.json
+|____package.json
+|____project_structure.txt
+|____public
+| |____favicon.ico
+| |____index.html
+| |____logo192.png
+| |____logo512.png
+| |____manifest.json
+| |____robots.txt
+|____README.md
+|____src
+| |____.env
+| |____App.css
+| |____App.js
+| |____App.test.js
+| |____components
+| | |____AssistedForms.jsx
+| | |____AssistedInfo.jsx
+| | |____AssistedUpdate.jsx
+| | |____backup.js
+| | |____Header.jsx
+| |____hooks
+| | |____useFetchAllAssisted.js
+| | |____useTodayAssisteds.js
+| |____index.css
+| |____index.js
+| |____logo.svg
+| |____reportWebVitals.js
+| |____services
+| | |____AssistedContext.js
+| | |____defaultState.js
+| | |____requests.js
+| |____setupTests.js
+| |____styles
+| | |____AssistedForms.css
+| | |____Formulary.css
+| | |____Header.css
+| | |____PersonCard.css
