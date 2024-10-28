@@ -1,0 +1,212 @@
+.
+|____.dockerignore
+|____.env
+|____.eslintrc.js
+|____.gitignore
+|____.sequelizerc
+|____dist
+| |____server.js
+|____Dockerfile
+|____get_files_structure.sh
+|____jwt.evaluation.key
+|____package-lock.json
+|____package.json
+|____project_skeleton
+|____project_structure.txt
+|____public
+| |____app.js
+| |____app.js.map
+| |____controller
+| | |____assisted
+| | | |____assisted.js
+| | | |____assisted.js.map
+| | |____comentary
+| | | |____comentary.js
+| | | |____comentary.js.map
+| | |____inventory
+| | | |____inventory.js
+| | | |____inventory.js.map
+| | |____relationalInventory
+| | | |____relationalInventory.js
+| | | |____relationalInventory.js.map
+| |____database
+| | |____config
+| | | |____database.js
+| | | |____database.js.map
+| | |____models
+| | | |____Assisted.js
+| | | |____Assisted.js.map
+| | | |____Comentary.js
+| | | |____Comentary.js.map
+| | | |____index.js
+| | | |____index.js.map
+| | | |____Inventory.js
+| | | |____Inventory.js.map
+| | | |____RelationalInventory.js
+| | | |____RelationalInventory.js.map
+| |____interfaces
+| | |____assisted
+| | | |____IAssisted.js
+| | | |____IAssisted.js.map
+| | | |____INewAssisted.js
+| | | |____INewAssisted.js.map
+| | |____comments
+| | | |____IComentary.js
+| | | |____IComentary.js.map
+| | | |____INewComentary.js
+| | | |____INewComentary.js.map
+| | |____inventory
+| | | |____IInventory.js
+| | | |____IInventory.js.map
+| | | |____INewInventory.js
+| | | |____INewInventory.js.map
+| | |____relationalInventory
+| | | |____INewRelationalInventory.js
+| | | |____INewRelationalInventory.js.map
+| | | |____IRelationalInventory.js
+| | | |____IRelationalInventory.js.map
+| |____middleware
+| | |____assisted
+| | | |____assisted.js
+| | | |____assisted.js.map
+| | |____comentary
+| | | |____comentary.js
+| | | |____comentary.js.map
+| | |____ErrorHandler.js
+| | |____ErrorHandler.js.map
+| | |____inventory
+| | | |____inventory.js
+| | | |____inventory.js.map
+| | |____relationalInventory
+| | | |____relationalInventory.js
+| | | |____relationalInventory.js.map
+| |____routes
+| | |____assisted.js
+| | |____assisted.js.map
+| | |____comentary.js
+| | |____comentary.js.map
+| | |____index.js
+| | |____index.js.map
+| | |____inventory.js
+| | |____inventory.js.map
+| | |____relationalInventory.js
+| | |____relationalInventory.js.map
+| |____server.js
+| |____server.js.map
+| |____service
+| | |____assisted
+| | | |____Assisted.js
+| | | |____Assisted.js.map
+| | | |____index.js
+| | | |____index.js.map
+| | |____comentary
+| | | |____Comentary.js
+| | | |____Comentary.js.map
+| | | |____index.js
+| | | |____index.js.map
+| | |____ErrorManager.js
+| | |____ErrorManager.js.map
+| | |____ErrorMessages.js
+| | |____ErrorMessages.js.map
+| | |____inventory
+| | | |____index.js
+| | | |____index.js.map
+| | | |____Inventory.js
+| | | |____Inventory.js.map
+| | |____relationalInventory
+| | | |____index.js
+| | | |____index.js.map
+| | | |____relationalInventory.js
+| | | |____relationalInventory.js.map
+| | |____schema
+| | | |____assisted.js
+| | | |____assisted.js.map
+| | | |____comentary.js
+| | | |____comentary.js.map
+| | | |____inventory.js
+| | | |____inventory.js.map
+| | | |____relationalInventory.js
+| | | |____relationalInventory.js.map
+|____src
+| |____app.ts
+| |____controller
+| | |____assisted
+| | | |____assisted.ts
+| | |____comentary
+| | | |____comentary.ts
+| | |____inventory
+| | | |____inventory.ts
+| | |____relationalInventory
+| | | |____relationalInventory.ts
+| |____database
+| | |____config
+| | | |____database.ts
+| | |____migrations
+| | | |____20221024185108-assisted.js
+| | | |____20221024185117-comentary.js
+| | | |____20221024185118-inventory.js
+| | | |____20221024185135-RelationalInventory.js
+| | |____models
+| | | |____Assisted.ts
+| | | |____Comentary.ts
+| | | |____index.ts
+| | | |____Inventory.ts
+| | | |____RelationalInventory.ts
+| | |____seeders
+| | | |____20221024185136-assisted.txt
+| | | |____20221024185137-comentary.txt
+| | | |____20221024185166-Inventory.txt
+| | | |____20221101483914-relationalInventory.txt
+| |____interfaces
+| | |____assisted
+| | | |____IAssisted.ts
+| | | |____INewAssisted.ts
+| | |____comments
+| | | |____IComentary.ts
+| | | |____INewComentary.ts
+| | |____inventory
+| | | |____IInventory.ts
+| | | |____INewInventory.ts
+| | |____relationalInventory
+| | | |____INewRelationalInventory.ts
+| | | |____IRelationalInventory.ts
+| |____middleware
+| | |____assisted
+| | | |____assisted.ts
+| | |____comentary
+| | | |____comentary.ts
+| | |____ErrorHandler.ts
+| | |____inventory
+| | | |____inventory.ts
+| | |____relationalInventory
+| | | |____relationalInventory.ts
+| |____routes
+| | |____assisted.ts
+| | |____comentary.ts
+| | |____index.ts
+| | |____inventory.ts
+| | |____relationalInventory.ts
+| |____server.ts
+| |____service
+| | |____assisted
+| | | |____Assisted.ts
+| | | |____index.ts
+| | |____comentary
+| | | |____Comentary.ts
+| | | |____index.ts
+| | |____ErrorManager.ts
+| | |____ErrorMessages.ts
+| | |____inventory
+| | | |____index.ts
+| | | |____Inventory.ts
+| | |____relationalInventory
+| | | |____index.ts
+| | | |____relationalInventory.ts
+| | |____schema
+| | | |____assisted.ts
+| | | |____comentary.ts
+| | | |____inventory.ts
+| | | |____relationalInventory.ts
+| | |____users
+|____tsconfig.json
+|____tsc_eval.sh

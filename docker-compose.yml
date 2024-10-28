@@ -1,11 +1,56 @@
 version: '3.9'
 services:
+  frontend:
+    build: ./frontend
+    container_name: app_frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      backend:
+        condition: service_healthy
+    # Os `healthcheck` devem garantir que a aplicação
+    # está operacional, antes de liberar o container
+    environment:
+      - REACT_APP_LOCALHOST=http://localhost:3001
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3000"]
+      timeout: "10s"
+      retries: 5
+  backend:
+    build: ./backend
+    container_name: app_backend
+    ports:
+      - 3001:3001
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - PORT=3001
+      - DB_USER=postgres
+      - DB_PASS=123456
+      - DB_HOST=postgres
+      - DB_NAME=COMPAIXAO_AQUECE
+      - DB_PORT=5432
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3001"]
+      timeout: "10s"
+      retries: 5
   postgres:
       container_name: postgres_container
       image: postgres
       environment:
         POSTGRES_USER: ${POSTGRES_USER:-postgres}
         POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-123456}
+        PGDATA: /data/postgres
+      healthcheck:
+        test: ["CMD", "pg_isready", "-U", "postgres"]
+        timeout: "10s"
+        retries: 5
+      volumes:
+        - postgres:/data/postgres
       ports:
-        - 3006:5432
-      restart: 'always'
+        - 3002:5432
+      restart: unless-stopped
+  
+volumes:
+  postgres:
